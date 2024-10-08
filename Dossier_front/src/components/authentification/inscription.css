@@ -1,0 +1,72 @@
+.inscription-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     background-color: #00C3D4; 
+    padding: 20px;
+    border-radius: 15px;
+    width: 500px;
+    margin: auto;
+    /* background-image: url("../../../public/images/background.webp");
+    background-size: cover;
+    background-position: center; */
+  }
+  
+  .inscription-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .inscription-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .inscription-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .inscription-input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: white;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .inscription-button {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .inscription-button:hover {
+    background-color: #333333;
+  }
+  
+  @media (max-width: 768px) {
+    .inscription-row {
+      flex-direction: column;
+    }
+  
+    .inscription-input {
+      width: 100%;
+    }
+  }
+  

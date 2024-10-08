@@ -1,0 +1,6 @@
+.layout-container {
+    background-image: url("/public/images/background.webp");
+    /* Chemin correct vers l'image */
+    background-size: cover;
+    background-position: center;
+}
