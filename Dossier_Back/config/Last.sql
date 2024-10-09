@@ -8,13 +8,14 @@ CREATE TABLE Adresses (
     id_patient INT,
     FOREIGN KEY (id_patient) REFERENCES Patients(id) ON DELETE SET NULL
 );
+
 CREATE TABLE Adresses_Medecin (
     id INT AUTO_INCREMENT PRIMARY KEY,
     adresse_1 VARCHAR(255) NOT NULL,
     adresse_2 VARCHAR(255),
     ville VARCHAR(100) NOT NULL,
     code_postal VARCHAR(20) NOT NULL,
-    pays VARCHAR(100) NOT NULL
+    pays VARCHAR(100) NOT NULL,
     id_medecin INT,
     FOREIGN KEY (id_medecin) REFERENCES Medecins(id) ON DELETE SET NULL
 );
@@ -25,7 +26,7 @@ CREATE TABLE Medecins (
     prenom VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(255) NOT NULL,
-    telephone BIGINT,
+    telephone VARCHAR(20),  -- Changement ici
     numero_RPPS VARCHAR(255),
     est_generaliste BOOLEAN,
     est_cardiologue BOOLEAN,
@@ -37,7 +38,7 @@ CREATE TABLE Medecins (
     est_pediatre BOOLEAN,
     est_psychiatre BOOLEAN,
     est_urgentiste BOOLEAN,
-    description VARCHAR(255),
+    description VARCHAR(255)
 );
 
 CREATE TABLE Patients (
@@ -49,11 +50,11 @@ CREATE TABLE Patients (
     authentification_carte_vitale BOOLEAN NOT NULL DEFAULT FALSE,
     numero_securite_sociale VARCHAR(15),
     date_naissance DATE,
-    sexe ENUM('Homme', 'Femme', 'Autre'),
-    telephone VARCHAR(15),
+    sexe ENUM('Homme', 'Femme', 'Autre'),  -- Considérer l'inclusivité
+    telephone VARCHAR(20),  -- Changement ici
     est_abonne BOOLEAN,
     adresse_complete VARCHAR(255),
-    description VARCHAR(255),
+    description TEXT  -- Changement ici
 );
 
 CREATE TABLE Maladies (
@@ -84,7 +85,7 @@ CREATE TABLE Medecin_Patient (
     FOREIGN KEY (id_patient) REFERENCES Patients(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Patient_Maladie (
+CREATE TABLE Patients_Maladies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_patient INT,
     id_maladie INT,
@@ -93,7 +94,7 @@ CREATE TABLE Patient_Maladie (
     FOREIGN KEY (id_maladie) REFERENCES Maladies(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Traitements(
+CREATE TABLE Traitements (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_patient_maladie INT,
     id_medicament INT,
@@ -113,23 +114,23 @@ CREATE TABLE Abonnements (
     est_actif BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-CREATE TABLE Utilisateur_Abonnement (
+CREATE TABLE Patient_Abonnement (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_utilisateur INT,
+    id_patient INT,
     id_abonnement INT,
     date_debut DATE NOT NULL,
     date_fin DATE NOT NULL,
     est_actif BOOLEAN NOT NULL DEFAULT TRUE,
-    FOREIGN KEY (id_utilisateur) REFERENCES Utilisateurs(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_patient) REFERENCES Patients(id) ON DELETE CASCADE,
     FOREIGN KEY (id_abonnement) REFERENCES Abonnements(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Paiements (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_utilisateur_abonnement INT,
+    id_patient_abonnement INT,
     montant DECIMAL(10, 2) NOT NULL,
     date_paiement DATE NOT NULL,
     mode_de_paiement ENUM('Carte de crédit', 'PayPal', 'Virement', 'Autre') NOT NULL,
     statut ENUM('Effectué', 'Échoué', 'En attente') NOT NULL,
-    FOREIGN KEY (id_utilisateur_abonnement) REFERENCES Utilisateur_Abonnement(id) ON DELETE CASCADE
+    FOREIGN KEY (id_patient_abonnement) REFERENCES Patient_Abonnement(id) ON DELETE CASCADE
 );
