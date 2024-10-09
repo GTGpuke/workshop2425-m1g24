@@ -1,25 +1,3 @@
-CREATE TABLE Adresses (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    adresse_1 VARCHAR(255) NOT NULL,
-    adresse_2 VARCHAR(255),
-    ville VARCHAR(100) NOT NULL,
-    code_postal VARCHAR(20) NOT NULL,
-    pays VARCHAR(100) NOT NULL,
-    id_patient INT,
-    FOREIGN KEY (id_patient) REFERENCES Patients(id) ON DELETE SET NULL
-);
-
-CREATE TABLE Adresses_Medecin (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    adresse_1 VARCHAR(255) NOT NULL,
-    adresse_2 VARCHAR(255),
-    ville VARCHAR(100) NOT NULL,
-    code_postal VARCHAR(20) NOT NULL,
-    pays VARCHAR(100) NOT NULL,
-    id_medecin INT,
-    FOREIGN KEY (id_medecin) REFERENCES Medecins(id) ON DELETE SET NULL
-);
-
 CREATE TABLE Medecins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
@@ -55,6 +33,28 @@ CREATE TABLE Patients (
     est_abonne BOOLEAN,
     adresse_complete VARCHAR(255),
     description TEXT  -- Changement ici
+);
+
+CREATE TABLE Adresses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    adresse_1 VARCHAR(255) NOT NULL,
+    adresse_2 VARCHAR(255),
+    ville VARCHAR(100) NOT NULL,
+    code_postal VARCHAR(20) NOT NULL,
+    pays VARCHAR(100) NOT NULL,
+    id_patient INT,
+    FOREIGN KEY (id_patient) REFERENCES Patients(id) ON DELETE SET NULL
+);
+
+CREATE TABLE Adresses_Medecin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    adresse_1 VARCHAR(255) NOT NULL,
+    adresse_2 VARCHAR(255),
+    ville VARCHAR(100) NOT NULL,
+    code_postal VARCHAR(20) NOT NULL,
+    pays VARCHAR(100) NOT NULL,
+    id_medecin INT,
+    FOREIGN KEY (id_medecin) REFERENCES Medecins(id) ON DELETE SET NULL
 );
 
 CREATE TABLE Maladies (
