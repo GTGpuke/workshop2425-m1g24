@@ -1,13 +1,11 @@
 const express = require('express');
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');  // Vérifie ce chemin
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json()); // Pour pouvoir traiter les requêtes JSON
-
-// Utilisation du routeur pour les utilisateurs
+app.use(express.json()); // Pour traiter les requêtes JSON
 app.use('/users', userRoutes);
 
 app.listen(PORT, () => {
