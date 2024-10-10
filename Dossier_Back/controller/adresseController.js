@@ -21,15 +21,20 @@ const createAdressePatient = async (req, res) => {
     }
 };
 
-// Récupérer toutes les adresses des patients
+// Récupérer toutes les adresses des patients avec des informations sur le patient
 const getAllAdressesPatients = async (req, res) => {
     let conn;
 
     try {
         conn = await pool.getConnection();
-        const [rows] = await conn.query("SELECT * FROM Adresses");
+        // Jointure avec la table Patients pour récupérer les informations des patients
+        const [rows] = await conn.query(`
+            SELECT a.*, p.nom AS patient_nom, p.prenom AS patient_prenom, p.email AS patient_email 
+            FROM Adresses a
+            LEFT JOIN Patients p ON a.id_patient = p.id
+        `);
 
-        res.status(200).json(rows);
+        res.status(200).json(rows); // Retourner toutes les adresses avec les informations des patients associés
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Erreur lors de la récupération des adresses des patients' });
@@ -37,6 +42,7 @@ const getAllAdressesPatients = async (req, res) => {
         if (conn) conn.release();
     }
 };
+
 
 // Récupérer toutes les adresses d'un patient
 const getAdressesPatient = async (req, res) => {
@@ -176,7 +182,6 @@ const getAdressesMedecin = async (req, res) => {
 };
 
 
-// Mettre à jour une adresse d'un médecin
 const updateAdresseMedecin = async (req, res) => {
     let conn;
     const id = req.params.id; // ID de l'adresse à mettre à jour
@@ -184,11 +189,14 @@ const updateAdresseMedecin = async (req, res) => {
 
     try {
         conn = await pool.getConnection();
-        const [result] = await conn.query(
+        
+        // Exécution de la requête de mise à jour
+        const result = await conn.query(
             "UPDATE Adresses_Medecin SET adresse_1 = ?, adresse_2 = ?, ville = ?, code_postal = ?, pays = ? WHERE id = ?",
             [adresse_1, adresse_2, ville, code_postal, pays, id]
         );
 
+        // Vérification de result.affectedRows (au lieu de déstructurer)
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: 'Adresse non trouvée' });
         }
@@ -209,8 +217,11 @@ const deleteAdresseMedecin = async (req, res) => {
 
     try {
         conn = await pool.getConnection();
-        const [result] = await conn.query("DELETE FROM Adresses_Medecin WHERE id = ?", [id]);
+        
+        // La requête retourne un objet, pas un tableau
+        const result = await conn.query("DELETE FROM Adresses_Medecin WHERE id = ?", [id]);
 
+        // Vérification de result.affectedRows pour savoir si quelque chose a été supprimé
         if (result.affectedRows === 0) {
             return res.status(404).json({ message: 'Adresse non trouvée' });
         }
