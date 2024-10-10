@@ -5,6 +5,7 @@ const router = express.Router(); // Créer un routeur Express
 const medecinController = require('../controller/medecinController'); // Contrôleur pour les médecins
 const patientController = require('../controller/patientController'); // Contrôleur pour les patients
 const adresseController = require('../controller/adresseController'); // Contrôleur pour les adresses
+const maladieController = require('../controller/maladieController'); // Contrôleur pour les médicaments et maladies
 
 // Ajoutez d'autres contrôleurs si nécessaire
 
@@ -35,6 +36,11 @@ router.get('/adresses/medecins', adresseController.getAllAdressesMedecins); // R
 router.get('/adresses/medecin/:id', adresseController.getAdressesMedecin); // Récupérer toutes les adresses d'un médecin
 router.put('/adresses/medecin/:id', adresseController.updateAdresseMedecin); // Mettre à jour une adresse d'un médecin
 router.delete('/adresses/medecin/:id', adresseController.deleteAdresseMedecin); // Supprimer une adresse d'un médecin
+
+// Routes pour les maladies
+router.get('/maladies', maladieController.getAllMaladies);
+router.get('/medicaments', maladieController.getAllMedicaments);
+
 
 // Ajoutez d'autres routes pour les maladies, traitements, etc. selon vos besoins
 

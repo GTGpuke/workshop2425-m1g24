@@ -1,4 +1,5 @@
 const pool = require('../config/dbConfig'); // Importation de la configuration de la base de données
+const nodemailer = require('nodemailer');
 
 // Obtenir tous les patients
 const getAllPatients = async (req, res) => {
@@ -50,7 +51,31 @@ const createPatient = async (req, res) => {
             "INSERT INTO Patients (nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description] // Insérer le nouveau patient dans la base de données
         );
-        res.status(201).json('Patient créé avec succès' ); // Retourner l'ID du nouveau patient avec un statut 201 (Créé)
+
+        // Configuration du transporteur de courriers
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.example.com', // Remplacez par le serveur SMTP de votre fournisseur
+            port: 587, // Utilisez 465 pour SSL
+            secure: false, // true pour 465, false pour les autres ports
+            auth: {
+                user: 'workshop2425.m1g24@gmail.com', // Votre adresse e-mail
+                pass: 'votre_mot_de_passe', // Votre mot de passe
+            },
+        });
+
+        // Définir les options de l'e-mail
+        let mailOptions = {
+            from: '"Nom de l\'expéditeur" <votre_email@example.com>', // Adresse de l'expéditeur
+            to: email, // Adresse e-mail du patient
+            subject: 'Inscription réussie', // Sujet de l'e-mail
+            text: `Bonjour ${prenom},\n\nVotre inscription en tant que patient a été réussie.\n\nCordialement,\nL'équipe de santé`, // Corps de l'e-mail en texte brut
+            html: `<b>Bonjour ${prenom},</b><br><br>Votre inscription en tant que patient a été réussie.<br><br>Cordialement,<br>L'équipe de santé`, // Corps de l'e-mail en HTML
+        };
+
+        // Envoyer l'e-mail
+        await transporter.sendMail(mailOptions);
+
+        res.status(201).json('Patient créé avec succès'); // Retourner un message de succès avec un statut 201 (Créé)
     } catch (err) {
         console.error(err); // Afficher l'erreur dans la console
         res.status(500).json({ error: 'Erreur lors de la création du patient' }); // Gérer les erreurs avec un statut 500

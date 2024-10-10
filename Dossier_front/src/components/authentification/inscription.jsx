@@ -6,8 +6,7 @@ const Inscription = () => {
     nom: '',
     prenom: '',
     email: '',
-    pseudo: '',
-    motDePasse: '',
+    mot_de_passe: '',
     telephone: '',
   });
 
@@ -18,7 +17,7 @@ const Inscription = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/inscription', {
+      const response = await fetch('http://localhost:3001/patients', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,17 +63,9 @@ const Inscription = () => {
           className="inscription-input"
         />
         <input
-          type="text"
-          name="pseudo"
-          value={formData.pseudo}
-          onChange={handleChange}
-          placeholder="Nom d'utilisateur"
-          className="inscription-input"
-        />
-        <input
           type="password"
-          name="motDePasse"
-          value={formData.motDePasse}
+          name="mot_de_passe"
+          value={formData.mot_de_passe}
           onChange={handleChange}
           placeholder="Mot de passe"
           className="inscription-input"

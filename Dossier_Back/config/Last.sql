@@ -25,7 +25,7 @@ CREATE TABLE Patients (
     prenom VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(255) NOT NULL,
-    authentification_carte_vitale BOOLEAN NOT NULL DEFAULT FALSE,
+    authentification_carte_vitale BOOLEAN DEFAULT FALSE,
     numero_securite_sociale VARCHAR(15),
     date_naissance DATE,
     sexe ENUM('Homme', 'Femme', 'Autre'),  -- Considérer l'inclusivité
