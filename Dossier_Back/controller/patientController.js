@@ -54,12 +54,12 @@ const createPatient = async (req, res) => {
 
         // Configuration du transporteur de courriers
         let transporter = nodemailer.createTransport({
-            host: 'smtp.example.com', // Remplacez par le serveur SMTP de votre fournisseur
+            host: 'smtp.gmail.com', // Remplacez par le serveur SMTP de votre fournisseur
             port: 587, // Utilisez 465 pour SSL
             secure: false, // true pour 465, false pour les autres ports
             auth: {
                 user: 'workshop2425.m1g24@gmail.com', // Votre adresse e-mail
-                pass: 'votre_mot_de_passe', // Votre mot de passe
+                pass: 'zkta aszu aabj rdlo', // Votre mot de passe
             },
         });
 
