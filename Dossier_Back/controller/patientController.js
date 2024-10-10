@@ -1,5 +1,6 @@
 const pool = require('../config/dbConfig'); // Importation de la configuration de la base de données
 const nodemailer = require('nodemailer');
+const bcrypt = require('bcrypt');
 
 // Obtenir tous les patients
 const getAllPatients = async (req, res) => {
@@ -135,5 +136,52 @@ const deletePatient = async (req, res) => {
     }
 };
 
-// Exporter les fonctions du contrôleur pour les utiliser dans les routes
-module.exports = { getAllPatients, getPatientById, createPatient, updatePatient, deletePatient };
+// Connexion d'un patient
+const loginPatient = async (req, res) => {
+    let conn;
+    const { email, mot_de_passe } = req.body; // Récupérer l'email et le mot de passe depuis le corps de la requête
+
+    // Vérification des données d'entrée
+    if (!email || !mot_de_passe) {
+        return res.status(400).json({ message: 'Email et mot de passe sont requis' });
+    }
+
+    try {
+        conn = await pool.getConnection(); // Obtenir une connexion à la base de données
+
+        // Vérifier si un patient avec l'email existe
+        const [rows] = await conn.query("SELECT * FROM Patients WHERE email = ?", [email]);
+
+        // Vérifier si la requête a retourné des lignes
+        if (!rows || rows.length === 0) {
+            console.log(`Aucun patient trouvé avec l'email: ${email}`); // Log pour déboguer
+            return res.status(401).json({ message: 'Email ou mot de passe incorrect' });
+        }
+
+        // Récupérer le premier patient retourné
+        const patient = rows[0];
+
+        // Log des informations patient pour déboguer
+        console.log(patient); // Log du patient récupéré
+
+        // Comparer le mot de passe fourni avec le mot de passe haché stocké
+        const isMatch = await bcrypt.compare(mot_de_passe, patient.mot_de_passe);
+
+        if (!isMatch) {
+            return res.status(401).json({ message: 'Email ou mot de passe incorrect' });
+        }
+
+        // Si le patient est trouvé, retourner ses informations avec un statut 200 (OK)
+        res.status(200).json({ message: 'Connexion réussie', patient: { id: patient.id, email: patient.email } });
+    } catch (err) {
+        console.error(err); // Afficher l'erreur dans la console
+        res.status(500).json({ error: 'Erreur lors de la tentative de connexion' }); // Gérer les erreurs avec un statut 500
+    } finally {
+        if (conn) conn.release(); // Libérer la connexion à la base de données
+    }
+};
+
+
+// Assurez-vous d'exporter cette fonction
+module.exports = { getAllPatients, getPatientById, createPatient, updatePatient, deletePatient, loginPatient };
+

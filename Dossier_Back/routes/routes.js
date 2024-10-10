@@ -22,15 +22,17 @@ router.get('/patients/:id', patientController.getPatientById); // Obtenir un pat
 router.post('/patients', patientController.createPatient); // Créer un nouveau patient
 router.put('/patients/:id', patientController.updatePatient); // Mettre à jour un patient par ID
 router.delete('/patients/:id', patientController.deletePatient); // Supprimer un patient par ID
+// Ajouter le point de terminaison pour la connexion d'un patient
+router.post('/login', patientController.loginPatient); // Utiliser POST pour la connexion
 
-// Routes pour les patients
+// Routes pour les adresses patients
 router.post('/adresses/patient', adresseController.createAdressePatient); // Créer une nouvelle adresse pour un patient
 router.get('/adresses/patients', adresseController.getAllAdressesPatients); // Récupérer toutes les adresses des patients
 router.get('/adresses/patient/:id', adresseController.getAdressesPatient); // Récupérer toutes les adresses d'un patient
 router.put('/adresses/patient/:id', adresseController.updateAdressePatient); // Mettre à jour une adresse d'un patient
 router.delete('/adresses/patient/:id', adresseController.deleteAdressePatient); // Supprimer une adresse d'un patient
 
-// Routes pour les médecins
+// Routes pour les adresses médecins
 router.post('/adresses/medecin', adresseController.createAdresseMedecin); // Créer une nouvelle adresse pour un médecin
 router.get('/adresses/medecins', adresseController.getAllAdressesMedecins); // Récupérer toutes les adresses des médecins
 router.get('/adresses/medecin/:id', adresseController.getAdressesMedecin); // Récupérer toutes les adresses d'un médecin
