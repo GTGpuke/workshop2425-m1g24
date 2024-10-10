@@ -24,7 +24,6 @@ const getPatientById = async (req, res) => {
         conn = await pool.getConnection();
         const [rows] = await conn.query("SELECT * FROM Patients WHERE id = ?", [id]);
 
-        console.log("Résultats de la requête:", rows); // Journaliser les résultats de la requête
 
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Patient non trouvé' });
