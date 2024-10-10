@@ -17,22 +17,28 @@ const getAllPatients = async (req, res) => {
 
 // Obtenir un patient par ID
 const getPatientById = async (req, res) => {
-    let conn; // Déclaration de la variable pour la connexion à la base de données
-    const id = req.params.id; // Récupérer l'ID du patient à partir des paramètres de la requête
+    let conn;
+    const id = req.params.id;
+
     try {
-        conn = await pool.getConnection(); // Obtenir une connexion à la base de données
-        const [rows] = await conn.query("SELECT * FROM Patients WHERE id = ?", [id]); // Exécuter la requête SQL pour obtenir le patient par ID
-        if (rows.length === 0) { // Vérifier si aucun patient n'est trouvé
-            return res.status(404).json({ message: 'Patient non trouvé' }); // Retourner un statut 404 si le patient n'est pas trouvé
+        conn = await pool.getConnection();
+        const [rows] = await conn.query("SELECT * FROM Patients WHERE id = ?", [id]);
+
+        console.log("Résultats de la requête:", rows); // Journaliser les résultats de la requête
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Patient non trouvé' });
         }
-        res.status(200).json(rows[0]); // Retourner le patient trouvé sous forme de JSON avec un statut 200 (OK)
+
+        res.status(200).json(rows);
     } catch (err) {
-        console.error(err); // Afficher l'erreur dans la console
-        res.status(500).json({ error: 'Erreur lors de la récupération du patient' }); // Gérer les erreurs avec un statut 500
+        console.error(err);
+        res.status(500).json({ error: 'Erreur lors de la récupération du patient' });
     } finally {
-        if (conn) conn.release(); // Libérer la connexion à la base de données
+        if (conn) conn.release();
     }
 };
+
 
 // Créer un nouveau patient
 const createPatient = async (req, res) => {
@@ -45,7 +51,7 @@ const createPatient = async (req, res) => {
             "INSERT INTO Patients (nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description] // Insérer le nouveau patient dans la base de données
         );
-        res.status(201).json({ id: result[0].insertId, message: 'Patient créé avec succès' }); // Retourner l'ID du nouveau patient avec un statut 201 (Créé)
+        res.status(201).json('Patient créé avec succès' ); // Retourner l'ID du nouveau patient avec un statut 201 (Créé)
     } catch (err) {
         console.error(err); // Afficher l'erreur dans la console
         res.status(500).json({ error: 'Erreur lors de la création du patient' }); // Gérer les erreurs avec un statut 500
@@ -56,18 +62,19 @@ const createPatient = async (req, res) => {
 
 // Mettre à jour un patient
 const updatePatient = async (req, res) => {
-    let conn; // Déclaration de la variable pour la connexion à la base de données
-    const id = req.params.id; // Récupérer l'ID du patient à partir des paramètres de la requête
-    const { nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description } = req.body; // Récupérer les données à partir du corps de la requête
+    let conn;
+    const id = req.params.id;
+    const { nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description } = req.body;
 
     try {
         conn = await pool.getConnection(); // Obtenir une connexion à la base de données
-        const [result] = await conn.query(
+        const result = await conn.query(
             "UPDATE Patients SET nom = ?, prenom = ?, email = ?, mot_de_passe = ?, authentification_carte_vitale = ?, numero_securite_sociale = ?, date_naissance = ?, sexe = ?, telephone = ?, est_abonne = ?, adresse_complete = ?, description = ? WHERE id = ?",
-            [nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description, id] // Mettre à jour le patient dans la base de données
+            [nom, prenom, email, mot_de_passe, authentification_carte_vitale, numero_securite_sociale, date_naissance, sexe, telephone, est_abonne, adresse_complete, description, id]
         );
 
-        if (result.affectedRows === 0) { // Vérifier si aucun patient n'est affecté par la mise à jour
+        // Vérifier si aucune ligne n'a été affectée par la mise à jour
+        if (result.affectedRows === 0) { 
             return res.status(404).json({ message: 'Patient non trouvé' }); // Retourner un statut 404 si le patient n'est pas trouvé
         }
 
@@ -80,16 +87,18 @@ const updatePatient = async (req, res) => {
     }
 };
 
+
 // Supprimer un patient
 const deletePatient = async (req, res) => {
-    let conn; // Déclaration de la variable pour la connexion à la base de données
-    const id = req.params.id; // Récupérer l'ID du patient à partir des paramètres de la requête
+    let conn;
+    const id = req.params.id;
 
     try {
         conn = await pool.getConnection(); // Obtenir une connexion à la base de données
-        const [result] = await conn.query("DELETE FROM Patients WHERE id = ?", [id]); // Exécuter la requête SQL pour supprimer le patient
+        const result = await conn.query("DELETE FROM Patients WHERE id = ?", [id]); // Exécuter la requête SQL pour supprimer le patient
 
-        if (result.affectedRows === 0) { // Vérifier si aucun patient n'est affecté par la suppression
+        // Vérifier si aucune ligne n'a été affectée par la suppression
+        if (result.affectedRows === 0) { 
             return res.status(404).json({ message: 'Patient non trouvé' }); // Retourner un statut 404 si le patient n'est pas trouvé
         }
 
