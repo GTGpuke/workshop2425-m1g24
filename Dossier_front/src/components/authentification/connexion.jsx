@@ -11,11 +11,27 @@ const Connexion = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Logique d'envoi des données
-    console.log('Données soumises:', formData);
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    try {
+      const response = await fetch('http://localhost:3000/connexion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }); 
+      const result = await response.json(); 
+      if (response.ok) {
+        console.log(result.message); 
+      } else {
+        console.error(result.message);
+      }
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+    }
   };
+  
 
   return (
     <div className="connexion-container">

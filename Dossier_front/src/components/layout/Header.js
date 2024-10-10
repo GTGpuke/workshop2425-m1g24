@@ -1,6 +1,7 @@
 // src/components/layout/Header.js
 import React from 'react';
 import './Header.css'; 
+import PersonIcon from '@mui/icons-material/Person';
 
 const Header = () => {
   return (
@@ -12,6 +13,7 @@ const Header = () => {
           className="logoImage"
         />
         <h2 className="logoText">MiniCare</h2>
+       
       </div>
 
       <ul className="nav">
@@ -22,9 +24,9 @@ const Header = () => {
       </ul>
 
       <div className="avatarContainer">
-        {/* Tu peux décommenter et ajouter l'avatar ici */}
-        {/* <Avatar alt="Profile Avatar" src="/path/to/avatar.jpg" /> */}
-      </div>
+  <PersonIcon style={{ width: "60px", height: "60px", marginRight: "100px", color: "white", cursor: "pointer" }} />
+</div>
+
     </header>
   );
 };

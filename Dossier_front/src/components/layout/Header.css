@@ -24,11 +24,14 @@
     color: white;
     font-size: 24px;
     font-weight: bold;
+    margin-top: 65px;
   }
   
   .nav {
     display: flex;
     list-style-type: none;
+    gap: 35px;
+    margin-left: 350px;
   }
   
   .navItem {
@@ -50,5 +53,8 @@
   
   .avatarContainer img {
     border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 100px;
   }
   

@@ -1,0 +1,82 @@
+.medecin-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f8ff;
+  }
+  
+  .search-section {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-input {
+    width: 300px; /* Réduction de la taille du champ de recherche */
+    background-color: #fff;
+    border-radius: 25px;
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .medecin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .medecin-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007dc4;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .medecin-image {
+    width: 100px; /* Ajuster la taille de l'image pour correspondre à celle de l'image 1 */
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  
+  .medecin-content {
+    flex: 1;
+    padding: 10px;
+    color: white;
+  }
+  
+  .medecin-description {
+    margin-top: 10px;
+  }
+  
+  .medecin-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .medecin-icon {
+    color: white;
+    font-size: 30px; /* Augmenter la taille des icônes pour les rendre plus visibles */
+  }
+  
+  .footer {
+    text-align: right;
+    margin-top: 20px;
+    color: #007dc4;
+  }
+.Medecin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-top: 30px;
+}  

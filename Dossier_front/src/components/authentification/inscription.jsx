@@ -15,12 +15,24 @@ const Inscription = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Vous pouvez ajouter ici la logique pour envoyer les données
-    console.log('Données soumises:', formData);
+    try {
+      const response = await fetch('http://localhost:3000/inscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const result = await response.json();
+      console.log(result.message);
+    } catch (error) {
+      console.error('Erreur lors de l\'inscription:', error);
+    }
   };
-
+  
   return (
     <div className="inscription-container">
       <h2 className="inscription-title">Inscription</h2>
