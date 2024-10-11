@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
       <main>
         {children} {/* Contenu principal de la page */}
         <div className="chatbot-container">
-        <img
+        <img 
           src="/images/chatjpt-removebg.png" // Remplace cette image par ton logo
           alt="MiniCare Logo"
           className="chat-icon"

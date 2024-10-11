@@ -4,6 +4,8 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import SearchIcon from '@mui/icons-material/Search';
 import './medecin.css';
+import MessageIcon from '@mui/icons-material/Message';
+
 
 const Medecin = () => {
   return (
@@ -29,49 +31,57 @@ const Medecin = () => {
       </Typography>
       </div>
 
-      <Box className="medecin-list">
-        <Card className="medecin-card">
+     
+        <Card className="medecin-cardinal"  style={{backgroundColor: "#007dc4"}}>
            <div className="image-section">
              <img src="/images/medecin1.webp" alt="Médecin" className="accueil-image" />
-           </div>
-          <CardContent className="medecin-content">
-            <Typography variant="h6">NOM Prénom</Typography>
+             <Typography variant="h6">NOM Prénom</Typography>
             <Typography variant="body2">Spécialité</Typography>
-            <Typography variant="body2" className="medecin-description">
-              Présentation rapide du médecin
-            </Typography>
-          </CardContent>
-          <Box className="medecin-actions">
-            <IconButton>
-              <ChatBubbleOutlineIcon className="medecin-icon" />
-            </IconButton>
-            <IconButton>
-              <CampaignIcon className="medecin-icon" />
-            </IconButton>
-          </Box>
-        </Card>
+           </div>
 
-        <Card className="medecin-card"> 
-           <div className="image-section">
-             <img src="/images/medecin1.webp" alt="Médecin" className="accueil-image" />
-           </div>
           <CardContent className="medecin-content">
-            <Typography variant="h6">NOM Prénom</Typography>
-            <Typography variant="body2">Spécialité</Typography>
-            <Typography variant="body2" className="medecin-description">
+            <Typography variant="body2" style={{color: "black", backgroundColor: "white", width: "300px", height: "200px", borderRadius: "10px", textAlign: "center"}}>
               Présentation rapide du médecin
             </Typography>
           </CardContent>
+
           <Box className="medecin-actions">
             <IconButton>
               <ChatBubbleOutlineIcon className="medecin-icon" />
             </IconButton>
-            <IconButton>
-              <CampaignIcon className="medecin-icon" />
-            </IconButton>
+          
           </Box>
+          <div className="styles">
+             <MessageIcon />
+             <CampaignIcon />
+           </div>
         </Card>
-      </Box>
+         <br />
+       <Card className="medecin-cardinal" style={{backgroundColor: "#007dc4"}}>
+           <div className="image-section">
+             <img src="/images/medecin1.webp" alt="Médecin" className="accueil-image" />
+             <Typography variant="h6">NOM Prénom</Typography>
+            <Typography variant="body2">Spécialité</Typography>
+           </div>
+
+          <CardContent className="medecin-content">
+          <Typography variant="body2" style={{color: "black", backgroundColor: "white", width: "300px", height: "200px", borderRadius: "10px", textAlign: "center", }}>
+              Présentation rapide du médecin
+            </Typography>
+          </CardContent>
+          
+          <Box className="medecin-actions">
+            <IconButton>
+              <ChatBubbleOutlineIcon className="medecin-icon" />
+            </IconButton>
+          
+          </Box>
+          <div className="styles">
+             <MessageIcon  style={{color: "black", backgroundColor: "white", width: "70px", height: "60px", borderRadius: "10px" }}/> <br />
+             <CampaignIcon style={{color: "black", backgroundColor: "white", width: "70px", height: "60px", borderRadius: "10px" }} />
+           </div>
+        </Card>
+      
 
       <Box className="footer">
         <Typography variant="body2">

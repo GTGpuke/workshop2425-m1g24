@@ -30,13 +30,14 @@
   gap: 20px;
 }
 
-.medecin-card {
+.medecin-cardinal {
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
   background-color: #007dc4;
   color: white;
   border-radius: 10px;
+  width: 800px;
 }
 
 .medecin-image {

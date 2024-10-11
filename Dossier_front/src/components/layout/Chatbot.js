@@ -1,48 +1,72 @@
-import React, { useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import Chatbot from './Chatbot';
-import { Link } from 'react-router-dom';
-import './layout.css';
-import CloseIcon from '@mui/icons-material/Close';
+import React from 'react';
+import ChatBot from 'react-simple-chatbot';
+import { ThemeProvider } from 'styled-components';
 
-const Layout = ({ children }) => {
+// Définir un thème personnalisé
+const theme = {
+  background: '#f5f8fb',
+  fontFamily: 'Helvetica Neue',
+  headerBgColor: '#007dc4',
+  headerFontColor: '#fff',
+  headerFontSize: '15px',
+  botBubbleColor: '#007dc4',
+  botFontColor: '#fff',
+  userBubbleColor: '#fff',
+  userFontColor: '#4a4a4a',
+};
 
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+// Les étapes de la conversation
+const steps = [
+  {
+    id: '1',
+    message: 'Bonjour ! Comment puis-je vous aider aujourd’hui ?',
+    trigger: '2',
+  },
+  {
+    id: '2',
+    options: [
+      { value: 'questions', label: 'J\'ai des questions', trigger: '3' },
+      { value: 'aide', label: 'J\'ai besoin d\'aide', trigger: '4' },
+    ],
+  },
+  {
+    id: '3',
+    message: 'Quelest votre questions ?',
+    trigger: '5',
+  },
+  {
+    id: '4',
+    message: 'Je suis là pour vous aider ! Quelle est votre question ?',
+    trigger: '5',
+  },
+  {
+    id: '5',
+    user: true,
+    trigger: '6',
+  },
+  {
+    id: '6',
+    message: 'Pouvez-vous me donner plus de détails sur "{previousValue}" ?',
+    trigger: '7',
+  },
+  {
+    id: '7',
+    user: true,
+    trigger: '8',
+  },
+  {
+    id: '8',
+    message: 'Merci pour ces informations concernant "{previousValue}", je vais revenir vers vous bientôt.',
+    end: true, // Fin de la conversation après avoir demandé plus de détails
+  },
+];
 
-  // Fonction pour ouvrir/fermer le chatbot
-  const toggleChatbot = () => {
-    setIsChatbotOpen(!isChatbotOpen);
-  };
+const Chatbot = () => {
   return (
-    <div>
-      <Header />
-      <main>
-        {children} {/* Contenu principal de la page */}
-        <div className="chatbot-container">
-        <img
-          src="/images/chatjpt-removebg.png" // Remplace cette image par ton logo
-          alt="MiniCare Logo"
-          className="chat-icon"
-          onClick={toggleChatbot}
-        />
-     {isChatbotOpen && (
-        <div className="chatbot-popup">
-          <div className="chatbot-header">
-            <h4>Chat</h4>
-            <CloseIcon className="close-icon" onClick={toggleChatbot} /> {/* Ferme le chatbot */}
-          </div>
-          <Chatbot /> {/* Le composant du chatbot */}
-        </div>
-      )}
-    
-          <Link to="/" style={{position:"fixed", bottom: "95px", left: "1370px"}}>Envoyez nous un email</Link> {/* Lien vers la page Accueil */}
-         
-        </div>
-      </main> 
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <ChatBot steps={steps} />
+    </ThemeProvider>
   );
 };
 
-export default Layout;
+export default Chatbot;

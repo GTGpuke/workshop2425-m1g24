@@ -1,29 +1,41 @@
-
 .layout-container {
-    /* background-image: url("/public/images/background.webp");
-  
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; */
-    background-color: aqua;
+  position: relative;
 }
-.chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    width: 300px; /* Ajuste cette valeur selon la taille du chatbot */
-  }
-  
-  .chatbot-container .rsc-container {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-  .chat-icon {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 130px; /* Taille de l'icône du chatbot */
-    cursor: pointer;
-    z-index: 1000;
-  }
+
+.chat-icon {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 180px; 
+  height: 150px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chatbot-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 350px; /* Largeur du chatbot */
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007dc4; /* Couleur de l'en-tête du chatbot */
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
