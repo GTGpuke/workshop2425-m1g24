@@ -1,60 +1,94 @@
 /* src/components/layout/Header.css */
 
 .header {
-    background-color: #00bcd4; /* Couleur de fond cyan clair */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logoImage {
-    height: 100px; /* Taille de l'image */
-    width: 100px;
-    margin-right: 10px;
-  }
-  
-  .logoText {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 65px;
-  }
-  
-  .nav {
-    display: flex;
-    list-style-type: none;
-    gap: 35px;
-    margin-left: 350px;
-  }
-  
-  .navItem {
-    margin: 0 15px;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .navItem:hover {
-    color: #ffeb3b; /* Couleur jaune lors du survol */
-  }
-  
-  .avatarContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .avatarContainer img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-right: 100px;
-  }
-  
+  background-color: #00bcd4; /* Couleur de fond cyan clair */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 100px; /* Taille de l'image */
+  width: 100px;
+  margin-right: 10px;
+}
+
+.logoText {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 65px;
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+  gap: 35px;
+  margin-left: 350px;
+}
+
+.navItem {
+  margin: 0 15px;
+  color: white; /* Couleur blanche pour le texte */
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  color: #ffeb3b; /* Couleur jaune lors du survol */
+}
+
+/* Ajout de styles pour les liens */
+.navLink {
+  color: white; /* Couleur blanche pour le texte des liens */
+  text-decoration: none; /* Supprime le soulignement */
+  transition: color 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.navLink:hover {
+  color: #ffeb3b; /* Couleur jaune lors du survol des liens */
+}
+
+.avatarContainer {
+  display: flex;
+  align-items: center;
+  position: relative; /* Nécessaire pour le positionnement du menu déroulant */
+}
+
+.avatarContainer img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-right: 100px;
+}
+
+/* Ajoutez ce CSS pour le menu déroulant */
+.dropdownMenu {
+  position: absolute; /* Pour positionner le menu correctement */
+  top: 70px; /* Ajuster selon la hauteur de l'en-tête */
+  right: 20px; /* Ajuster selon les besoins */
+  background-color: black; /* Couleur de fond du menu */
+  color: white; /* Couleur du texte */
+  padding: 10px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+  z-index: 10; /* Assurer que le menu est au-dessus des autres éléments */
+}
+
+.logoutLabel, .navLink {
+  display: block; /* Afficher en tant que bloc pour occuper toute la largeur */
+  color: white; /* Couleur du texte */
+  padding: 5px 10px; /* Espacement autour du texte */
+  text-decoration: none; /* Supprimer le soulignement des liens */
+}
+
+.logoutLabel:hover, .navLink:hover {
+  background-color: #00bcd4; /* Couleur au survol */
+}

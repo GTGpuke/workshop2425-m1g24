@@ -64,10 +64,6 @@ const Accueil = () => {
         </div>
       </div>
 
-      {/* Lien en bas */}
-      <footer className="accueil-footer">
-        <a href="mailto:support@example.com">Envoyez-nous un e-mail</a>
-      </footer>
     </div>
   );
 };

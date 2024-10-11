@@ -6,7 +6,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer class='foot'>
       
 
       <div className="icones">

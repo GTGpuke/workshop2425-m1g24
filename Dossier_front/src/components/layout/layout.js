@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <main>
         {children} {/* Contenu principal de la page */}
       </main>
-      <Footer />
+      <div><Footer/></div>
     </div>
   );
 };

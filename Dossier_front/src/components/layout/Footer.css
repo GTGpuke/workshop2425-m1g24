@@ -1,3 +1,9 @@
-.icones{
-    background-color: #00b2e3;
+.icones {
+    display: flex; /* Utilise flexbox pour aligner les icônes */
+    justify-content: center; /* Centre les icônes horizontalement */
+    align-items: center; /* Centre les icônes verticalement */
+}
+
+.icones p {
+    margin-right: 15px; /* Espacement entre le texte et les icônes */
 }

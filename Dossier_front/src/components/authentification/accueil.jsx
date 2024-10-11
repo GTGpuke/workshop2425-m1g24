@@ -15,14 +15,6 @@ const Accueil = () => {
           </p>
         </div>
       </div>
-      <footer className="footer">
-        <div className="footer-icons">
-          <i className="fas fa-home"></i>
-          <i className="fas fa-envelope"></i>
-          <i className="fas fa-phone"></i>
-        </div>
-        <a href="mailto:support@example.com" className="email-link">Envoyez-nous un e-mail</a>
-      </footer>
     </div>
   );
 };

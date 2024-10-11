@@ -4,3 +4,9 @@
     background-size: cover;
     background-position: center;
 }
+.foot {
+    background-color: #00b1e2; /* Couleur de fond du footer */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Nécessaire pour le placement */
+    width: 100%; /* Prend toute la largeur */
+}
