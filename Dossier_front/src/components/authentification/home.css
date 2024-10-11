@@ -1,76 +1,67 @@
 .accueil-container {
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  .accueil-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .accueil-content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  
-  .accueil-table {
-    border-collapse: collapse;
-    width: 70%;
-  }
-  
-  .accueil-table th,
-  .accueil-table td {
-    border: 1px solid #000;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .accueil-table thead th {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .accueil-table tbody td:first-child {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  .accueil-weeks {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: #00c3d4;
-    border-radius: 5px;
-    color: white;
-  }
-  
-  .week {
-    background-color: white;
-    padding: 10px;
-    border: 1px solid #00c3d4;
-    border-radius: 5px;
-    width: 150px;
-    text-align: center;
-    color: #00c3d4;
-    font-weight: bold;
-  }
-  
-  .accueil-footer {
-    margin-top: 20px;
-  }
-  
-  .accueil-footer a {
-    color: #00c3d4;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #e5f8ff; /* Fond général */
+}
+
+.accueil-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.accueil-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px; /* Ajuster l'espace entre le tableau et les semaines */
+}
+
+.accueil-table {
+  border-collapse: collapse;
+  width: 65%; /* Ajuste la largeur du tableau */
+}
+
+.accueil-table th,
+.accueil-table td {
+  border: 2px solid black; /* Bordure noire plus épaisse */
+  padding: 15px;
+  text-align: center;
+}
+
+.accueil-table thead th {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.accueil-table tbody td:first-child {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+}
+
+.accueil-weeks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Plus d'espace entre les semaines */
+  padding: 20px;
+  background-color: #00c3d4;
+  border-radius: 10px;
+  color: white;
+  width: 180px; /* Ajuster la largeur des semaines */
+}
+
+.week {
+  background-color: white;
+  padding: 10px;
+  border: 2px solid #00c3d4;
+  border-radius: 5px;
+  width: 100%; /* Prendre toute la largeur du parent */
+  text-align: center;
+  color: #00c3d4;
+  font-weight: bold;
+}

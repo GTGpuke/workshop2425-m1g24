@@ -1,12 +1,12 @@
 import React from 'react';
-import './accueil.css'; // N'oublie pas d'ajouter le fichier CSS correspondant
+import './accueil.css'; 
 
 const Accueil = () => {
   return (
     <div className="accueil-container">
       <div className="content">
-        <div className="image-section">
-          <img src="/images/medecin.webp" alt="Médecin" className="accueil-image" />
+        <div className="section">
+          <img src="/images/medecin.webp" alt="Médecin" className="accueil" />
         </div>
         <div className="text-section">
           <h1 className="title">Accueil</h1>

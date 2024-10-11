@@ -1,12 +1,29 @@
+
 .layout-container {
-    background-image: url("/public/images/background.webp");
-    /* Chemin correct vers l'image */
+    /* background-image: url("/public/images/background.webp");
+  
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; */
+    background-color: aqua;
 }
-.foot {
-    background-color: #00b1e2; /* Couleur de fond du footer */
-    text-align: center; /* Centre le texte */
-    position: relative; /* Nécessaire pour le placement */
-    width: 100%; /* Prend toute la largeur */
-}
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px; /* Ajuste cette valeur selon la taille du chatbot */
+  }
+  
+  .chatbot-container .rsc-container {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  .chat-icon {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 130px; /* Taille de l'icône du chatbot */
+    cursor: pointer;
+    z-index: 1000;
+  }

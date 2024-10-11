@@ -28,14 +28,12 @@ const Medecin = () => {
         Médecins
       </Typography>
       </div>
+
       <Box className="medecin-list">
         <Card className="medecin-card">
-          <CardMedia
-            component="img"
-            className="medecin-image"
-            image="/images/medecin1.webp"
-            alt="Médecin 1"
-          />
+           <div className="image-section">
+             <img src="/images/medecin1.webp" alt="Médecin" className="accueil-image" />
+           </div>
           <CardContent className="medecin-content">
             <Typography variant="h6">NOM Prénom</Typography>
             <Typography variant="body2">Spécialité</Typography>
@@ -53,13 +51,10 @@ const Medecin = () => {
           </Box>
         </Card>
 
-        <Card className="medecin-card">
-          <CardMedia
-            component="img"
-            className="medecin-image"
-            image="/images/medecin2.webp"
-            alt="Médecin 2"
-          />
+        <Card className="medecin-card"> 
+           <div className="image-section">
+             <img src="/images/medecin1.webp" alt="Médecin" className="accueil-image" />
+           </div>
           <CardContent className="medecin-content">
             <Typography variant="h6">NOM Prénom</Typography>
             <Typography variant="body2">Spécialité</Typography>
