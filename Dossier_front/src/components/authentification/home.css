@@ -1,16 +1,21 @@
+/* Style général de l'application */
 .accueil-container {
   padding: 20px;
   text-align: center;
-  font-family: Arial, sans-serif;
-  background-color: #e5f8ff; /* Fond général */
+  font-family: 'Arial', sans-serif;
+  background-color: #cfe2f3; /* Fond général plus sombre */
+  border-radius: 15px; /* Coins plus arrondis */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Ombre légère */
 }
 
 .accueil-title {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #222; /* Couleur du texte plus sombre */
 }
 
+/* Contenu principal */
 .accueil-content {
   display: flex;
   justify-content: center;
@@ -18,50 +23,119 @@
   gap: 50px; /* Ajuster l'espace entre le tableau et les semaines */
 }
 
+/* Tableau */
 .accueil-table {
   border-collapse: collapse;
-  width: 65%; /* Ajuste la largeur du tableau */
+  width: 70%; /* Ajuste la largeur du tableau */
+  margin-top: 20px; /* Ajout d'un espace en haut */
 }
 
 .accueil-table th,
 .accueil-table td {
-  border: 2px solid black; /* Bordure noire plus épaisse */
+  border: 1px solid #555; /* Bordure sombre */
   padding: 15px;
   text-align: center;
+  transition: background-color 0.3s; /* Transition pour effet de survol */
 }
 
-.accueil-table thead th {
-  background-color: black;
+.accueil-table th {
+  background-color: #3e4b50; /* Couleur de fond des en-têtes plus sombre */
   color: white;
   font-weight: bold;
 }
 
 .accueil-table tbody td:first-child {
-  background-color: black;
+  background-color: #3e4b50; /* Couleur de fond de la première colonne plus sombre */
   color: white;
   font-weight: bold;
   text-align: left;
 }
 
+/* Style des semaines */
 .accueil-weeks {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px; /* Plus d'espace entre les semaines */
   padding: 20px;
-  background-color: #00c3d4;
-  border-radius: 10px;
+  background-color: #2a3d4f; /* Fond sombre pour les semaines */
+  border-radius: 15px; /* Coins plus arrondis */
   color: white;
   width: 180px; /* Ajuster la largeur des semaines */
 }
 
 .week {
-  background-color: white;
+  background-color: #ffffff; /* Fond des semaines en blanc */
   padding: 10px;
-  border: 2px solid #00c3d4;
+  border: 2px solid #2a3d4f; /* Bordure sombre */
   border-radius: 5px;
   width: 100%; /* Prendre toute la largeur du parent */
   text-align: center;
-  color: #00c3d4;
+  color: #2a3d4f; /* Couleur sombre pour le texte */
   font-weight: bold;
+}
+
+/* Style du pop-up */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre pour le pop-up */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #ffffff; /* Fond blanc pour le pop-up */
+  padding: 20px;
+  border-radius: 15px; /* Coins plus arrondis */
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Ombre autour du pop-up */
+}
+
+.popup-content input, .popup-content select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px; /* Coins arrondis pour les champs de saisie */
+  border: 1px solid #ccc; /* Bordure grise légère */
+}
+
+/* Bouton d'ajout de traitement */
+.add-traitement-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Couleur du bouton */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Coins arrondis pour le bouton */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition pour effet de survol */
+}
+
+.add-traitement-btn:hover {
+  background-color: #0056b3; /* Couleur du bouton au survol */
+}
+
+/* Réglage du tableau */
+.accueil-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.accueil-table th, .accueil-table td {
+  border: 1px solid #555; /* Bordure sombre */
+  padding: 8px;
+  text-align: center;
+}
+
+.accueil-table th {
+  background-color: #3e4b50; /* Couleur de fond des en-têtes */
+  color: white;
 }
