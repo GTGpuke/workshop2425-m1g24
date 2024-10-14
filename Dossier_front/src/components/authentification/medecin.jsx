@@ -20,7 +20,7 @@ const Medecin = () => {
               <IconButton>
                 <SearchIcon />
               </IconButton>
-            )
+         )
           }}
           className="search-input"
         />

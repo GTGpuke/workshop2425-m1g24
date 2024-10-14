@@ -1,0 +1,18 @@
+{
+    "header": {
+      "phone": " +33 (0)1 23 45 67 89",
+      "email": "workshop2425.m1g24@gmail.com",
+      "home": "Home",
+      "services": "Our Services",
+      "mobiliis": "Mobiliis",
+      "destinations": "Destinations",
+      "offers": "Our Offers",
+      "logout": "Logout",
+      "login": "Login"
+    },
+    "accueil": {
+      "title": "Home",
+      "description": "The e-health sanctuary to manage your wellness schedule."
+    }
+  }
+  

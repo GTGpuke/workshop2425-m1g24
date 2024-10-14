@@ -1,0 +1,18 @@
+{
+    "header": {
+      "phone": " +33 (0)1 23 45 67 89 | +237 675 07 00 50",
+      "email": "workshop2425.m1g24@gmail.com",
+      "home": "Accueil",
+      "services": "Nos services",
+      "mobiliis": "Mobiliis",
+      "destinations": "Destinations",
+      "offers": "Nos offres",
+      "logout": "Déconnexion",
+      "login": "Connexion"
+    },
+    "accueil": {
+      "title": "Accueil",
+      "description": "Le sanctuaire d'e-santé pour orchestrer son calendrier de bien-être."
+    }
+  }
+  
