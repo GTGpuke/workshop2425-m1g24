@@ -1,15 +1,50 @@
 /* Bloc supérieur pour les informations */
 .header-infos {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: #004080; /* Couleur de fond bleu foncé */
   color: white;
   padding: 5px 20px;
   font-size: 14px;
   height: 40px;
+  justify-content: space-between;
+ 
+}
+.information{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-right: 50px;
+  font-size: 19px;
+  cursor: pointer;
+}
+.email{
+  margin-right: 100px;
+}
+.tel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 40px;
+  font-size: 19px;
+  cursor: pointer;
 }
 
+.phone-icon {
+  margin-right: 4px; /* Espace entre l'icône et les numéros */
+}
+
+.phone-numbers {
+  display: flex;
+  gap: 8px; /* Espacement entre chaque numéro */
+}
+
+
+
+
+.head{
+  width: 100%;
+}
 .header-infos p {
   margin: 0;
   display: flex;
@@ -36,8 +71,8 @@
 }
 
 .logoImage {
-  height: 80px; 
-  width: 110;
+  height: 80px;
+  width: 110px;
 }
 
 .slogan {
@@ -86,12 +121,12 @@
 
 .dropdownMenu {
   position: absolute;
-  top: 60px; /* Ajuster selon la hauteur de l'icône */
+  top: 60px;
   right: 0;
   background-color: black;
   color: black;
   padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'ombre */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   z-index: 10;
 }
@@ -108,10 +143,10 @@
 
 .langMenu {
   position: absolute;
-  top: 50px; /* Ajuster selon la hauteur de l'icône */
+  top: 50px;
   background-color: white;
   padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'ombre */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   z-index: 10;
 }
@@ -124,3 +159,175 @@
 .langMenu p:hover {
   background-color: #f0f0f0;
 }
+
+
+
+/* Menu responsive en plein écran */
+.nav-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #004080; /* Couleur de fond bleu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding-top: 50px;
+}
+.nav-open {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: green; /* Couleur de fond */
+  padding: 20px;
+  z-index: 10; /* Au-dessus du backdrop */
+}
+
+/* Icône de fermeture dans le menu */
+.close-icon {
+  align-self: flex-end;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+
+.nav-open .nav-list {
+  flex-direction: column;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+}
+
+.navItem {
+  margin: 15px 0;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Effet semi-transparent */
+  z-index: 9; /* Sous le menu mais au-dessus de tout le reste */
+}
+
+/* Afficher le bouton burger en mode responsive */
+.burger-container {
+  display: none;
+}
+
+.burger-icon {
+  cursor: pointer;
+  font-size: 2rem;
+ 
+}
+
+
+/* Cache le menu en mode desktop */
+.nav {
+  display: flex;
+  flex-direction: row; /* Par défaut, en ligne pour le mode desktop */
+}
+
+/* Mode responsive pour afficher le bouton burger */
+@media (max-width: 1000px) {
+  .header-infos {
+    display: flex;
+    align-items: center;
+    background-color: #004080;
+    color: white;
+    padding: 3px 14px;
+    font-size: 14px;
+    height: auto;
+    flex-direction: column;
+    
+  }
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  .phone-numbers {
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Espace entre chaque numéro */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    margin-right: 7px;
+  }
+
+  .tel {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 18px;
+  }
+
+  
+  .nav {
+    display: none; /* Masque le menu en mode responsive */
+  }
+
+  .nav-open {
+    display: flex; /* Affiche le menu uniquement si la classe nav-open est présente */
+    flex-direction: column;
+    justify-content: flex-start;
+    list-style-type: none;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #004080;
+    padding: 20px;
+    color: white
+  }
+
+  .nav-list {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .navItem {
+    margin: 15px 0;
+  }
+
+  .burger-container {
+    display: block;
+  }
+
+  .navLink {
+    color: white !important; /* Couleur blanche pour les liens */
+    text-decoration: none;
+  }
+
+  .navLink:hover {
+    color: #ffeb3b; /* Couleur jaune pour le survol */
+  }
+}
+
+

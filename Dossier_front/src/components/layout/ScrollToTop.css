@@ -1,0 +1,29 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .scroll-button {
+    width: 50px;
+    height: 50px;
+    background-color: #ff4757; /* Couleur du bouton */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+  
+  .scroll-button:hover {
+    background-color: #ff6b81; /* Couleur lors du hover */
+  }
+  
+  .scroll-button span {
+    font-size: 24px;
+    color: white;
+  }
+  

@@ -8,9 +8,9 @@ const Accueil = () => {
   return (
     <div className="accueil-container">
       <div className="content">
-        <div className="section">
+        {/* <div className="section">
           <img src="/images/medecin.webp" alt="Médecin" className="accueil" />
-        </div>
+        </div> */}
         <div className="text-section">
           <h1 className="title">{t('accueil.title')}</h1> {/* Traduction du titre */}
           <p className="description">{t('accueil.description')}</p> {/* Traduction de la description */}

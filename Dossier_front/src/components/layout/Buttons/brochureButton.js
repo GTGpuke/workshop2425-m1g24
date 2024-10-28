@@ -7,12 +7,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 
-// Supprimer les annotations de type
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Contact() {
+export default function BrochureButton() { // Renommé en BrochureButton
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -26,7 +25,7 @@ export default function Contact() {
   return (
     <React.Fragment>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Slide in alert dialog
+        Télécharger notre documentation
       </Button>
       <Dialog
         open={open}
@@ -35,16 +34,24 @@ export default function Contact() {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle>
+          {"Télécharger notre documentation"}
+          <Button onClick={handleClose} style={{ position: 'absolute', right: 16, top: 16 }}>X</Button>
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
-          </DialogContentText>
+          <form>
+            <DialogContentText>
+              Veuillez remplir ce formulaire pour télécharger la documentation.
+            </DialogContentText>
+            <input type="text" placeholder="Nom" required style={{ display: 'block', margin: '8px 0' }} />
+            <input type="text" placeholder="Prénom" required style={{ display: 'block', margin: '8px 0' }} />
+            <input type="email" placeholder="Email" required style={{ display: 'block', margin: '8px 0' }} />
+            <input type="tel" placeholder="Téléphone" required style={{ display: 'block', margin: '8px 0' }} />
+          </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
+          <Button onClick={handleClose}>Annuler</Button>
+          <Button type="submit">Valider</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
