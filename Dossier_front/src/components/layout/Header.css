@@ -2,12 +2,13 @@
 .header-infos {
   display: flex;
   align-items: center;
-  background-color: #004080; /* Couleur de fond bleu foncé */
+  background-color: #A93D87 ; /* Couleur de fond bleu foncé */
   color: white;
   padding: 5px 20px;
   font-size: 14px;
   height: 40px;
   justify-content: space-between;
+  width: 100%;
  
 }
 .information{
@@ -36,14 +37,12 @@
 
 .phone-numbers {
   display: flex;
-  gap: 8px; /* Espacement entre chaque numéro */
+  gap: 1px; /* Espacement entre chaque numéro */
 }
-
-
-
 
 .head{
   width: 100%;
+  box-shadow: none;
 }
 .header-infos p {
   margin: 0;
@@ -160,8 +159,6 @@
   background-color: #f0f0f0;
 }
 
-
-
 /* Menu responsive en plein écran */
 .nav-open {
   position: fixed;
@@ -201,7 +198,6 @@
   font-size: 24px;
 }
 
-
 .nav-open .nav-list {
   flex-direction: column;
 }
@@ -220,8 +216,6 @@
   text-decoration: none;
   font-size: 1.2rem;
 }
-
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -243,39 +237,90 @@
  
 }
 
-
 /* Cache le menu en mode desktop */
 .nav {
   display: flex;
   flex-direction: row; /* Par défaut, en ligne pour le mode desktop */
 }
 
+
+.subMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  width: 200px;
+}
+
+.subMenu li {
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.subMenu li:last-child {
+  border-bottom: none;
+}
+
+.subMenu li a {
+  color: #004080; /* Couleur du lien */
+  text-decoration: none;
+}
+
+.subMenu li:hover {
+  background-color: #f0f0f0; /* Couleur de survol */
+}
+
+
+
+
+
 /* Mode responsive pour afficher le bouton burger */
 @media (max-width: 1000px) {
+
+  .head{
+    width: 100%;
+  }
+  h4{
+    font-size: 12px;
+    margin-left: 30px;
+  }
   .header-infos {
     display: flex;
     align-items: center;
-    background-color: #004080;
+    background-color: #A93D87 ;
     color: white;
     padding: 3px 14px;
     font-size: 14px;
-    height: auto;
     flex-direction: column;
-    
+    width: auto; 
+    height: 100px;
   }
 
+  .email{
+    margin-bottom: 20px;
+    margin-right: 15px;
+  }
   .information {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Ajuste pour le mode colonne en mobile */
     font-size: 15px;
+    width: 100%; /* Assurez-vous qu'il prend la largeur disponible */
+    align-items: center; /* Centre le contenu */
+    margin: 5px 0; /* Un petit espacement autour */
+    color: white !important;
   }
 
   .phone-numbers {
     display: flex;
     flex-direction: row;
-    gap: 5px; /* Espace entre chaque numéro */
+    gap: 1px; /* Espace entre chaque numéro */
     white-space: nowrap; /* Empêche le retour à la ligne */
-    margin-right: 7px;
+    margin-right: 20px;
   }
 
   .tel {
@@ -297,14 +342,15 @@
     justify-content: flex-start;
     list-style-type: none;
     position: fixed;
-    top: 40px;
-    left: 0;
+    top: 0; /* Aligne le menu en haut de la page */
+    right: 0; /* Place le menu à droite */
     width: 300px;
-    height: 100vh;
+    height: 100vh; /* Couvre toute la hauteur de l'écran */
     background-color: #004080;
     padding: 20px;
-    color: white
-  }
+    color: white;
+    z-index: 9999; /* Assure que le menu est au-dessus des autres éléments */
+}
 
   .nav-list {
     margin: 0;

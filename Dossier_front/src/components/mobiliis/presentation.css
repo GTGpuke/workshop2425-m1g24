@@ -1,0 +1,105 @@
+.presentation-container {
+    background-color: #A93D87; /* Couleur de fond */
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .presentation-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .presentation-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .quote-icon {
+    font-size: 5rem;
+    color: #66cc66;
+    position: absolute;
+    top: -20px;
+    left: 30px;
+  }
+  
+  .story-card {
+    display: flex;
+    background-color: #3cb371; /* Couleur de fond verte pour le contenu */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  .story-image img {
+    width: 150px;
+    height: 150px; /* Assurez-vous que la hauteur et la largeur sont identiques pour créer un cercle */
+    border-radius: 50%; /* Cette propriété rend l'image circulaire */
+    margin-right: 20px;
+    object-fit: cover; /* Cela assure que l'image est bien ajustée dans le cercle */
+  }
+  
+  
+  .story-text {
+    color: white;
+    text-align: left;
+  }
+  
+  .story-text h2 {
+    font-weight: bold;
+  }
+  
+  .story-text p {
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
+
+  .statistics-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .statistics-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0056b3; /* Bleu foncé pour le titre */
+    margin-bottom: 30px;
+  }
+  
+  .statistics-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .stat-icon {
+    font-size: 3rem;
+    color: #0056b3; /* Bleu pour les icônes */
+    margin-bottom: 10px;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.5rem;
+    color: #0056b3;
+    margin: 5px 0;
+  }
+  
+  .stat-item p {
+    color: #555;
+    font-size: 1rem;
+    text-align: center;
+  }
+  

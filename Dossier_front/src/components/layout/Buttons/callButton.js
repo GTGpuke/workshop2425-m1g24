@@ -1,26 +1,47 @@
-import React from 'react';
+import CallIcon from '@mui/icons-material/Call';
+import React, { useState, useEffect } from 'react';
 
 const CallButton = () => {
   const phoneNumber = "+237655196254"; 
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1000);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const styles = {
+    button: {
+      width: '50px',
+      height: '50px',
+      backgroundColor: '#004080',
+      color: 'white',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',
+      textDecoration: 'none',
+      cursor: 'pointer',  
+      position: 'fixed', 
+      top: '220px',
+      right: '20px',   
+      zIndex: isMobile ? 1000 : 1, // Applique le z-index en fonction de l'état isMobile
+    },
+    icon: {
+      fontSize: '24px',
+    },
+  };
+
   return (
     <a href={`tel:${phoneNumber}`} style={styles.button}>
-      Appeler
+      <CallIcon style={styles.icon} />
     </a>
   );
-};
-
-const styles = {
-  button: {
-    padding: '10px 20px',
-    backgroundColor: '#004080', // Couleur de fond
-    color: 'white', // Couleur du texte
-    borderRadius: '5px', // Arrondir les coins
-    textDecoration: 'none', // Retirer le soulignement
-    fontSize: '16px', // Taille du texte
-    textAlign: 'center',
-    display: 'inline-block', // Afficher comme un bouton
-  }
 };
 
 export default CallButton;

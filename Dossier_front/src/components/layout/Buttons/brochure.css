@@ -1,0 +1,75 @@
+/* Style pour le titre du formulaire et le bouton de fermeture */
+.dialog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .close-button {
+    font-size: 1.2rem;
+    color: #007bff;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
+  /* Style pour le texte d'instruction */
+  .dialog-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style pour les champs de saisie */
+  .dialog-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .dialog-input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Style pour les boutons d'action */
+  .dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .dialog-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .cancel-button {
+    color: #007bff;
+    background-color: transparent;
+  }
+  
+  .cancel-button:hover {
+    color: #0056b3;
+  }
+  
+  .submit-button {
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

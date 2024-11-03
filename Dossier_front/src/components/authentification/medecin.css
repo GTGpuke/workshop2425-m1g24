@@ -1,90 +1,105 @@
 .medecin-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
   background-color: #f0f8ff;
 }
 
-.search-section {
-  margin: 20px 0;
+.flou {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  overflow: hidden;
+}
+
+.flou img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Superposition de fond avec effet flou */
+.backdrop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Réduisez l'opacité pour un effet plus léger */
+  backdrop-filter: blur(2px); 
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-}
-
-.search-input {
-  width: 340px; 
-  background-color: #fff;
-  border-radius: 25px;
-}
-
-.section-title {
-  margin-bottom: 20px;
-  font-weight: bold;
+  color: white;
   text-align: center;
 }
 
-.medecin-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.backdrop-overlay .title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
 }
 
-.medecin-cardinal {
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
-  background-color: #007dc4;
-  color: white;
-  border-radius: 10px;
-  width: 800px;
+.backdrop-overlay .description {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 10px 0;
 }
 
-.medecin-image {
-  width: 10px; /* Ajuster la taille de l'image pour correspondre à celle de l'image 1 */
-  height: 10px;
-  border-radius: 50%;
-  margin: 10px;
+
+
+
+
+.texter {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centre le texte */
+  width: 80%; /* Largeur ajustée pour une meilleure adaptabilité */
+  text-align: center;
+  color: #004080;
+}
+.titre {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #A93D87;
 }
 
-.medecin-content {
-   background-color: #007dc4;
+.descrire {
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  color: whitesmoke;
+  margin-bottom: 30px;
 }
 
-.medecin-description {
+/* Conteneur du composant témoignages */
+.temoignage {
+  width: 100%;
   margin-top: 10px;
-  height: 180px;
-  width: 400px;
-  border-radius: 15px;
-  background-color: #fff;
 }
 
-.medecin-actions {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.medecin-icon {
+.green-button {
+  background-color: #1976D2;
   color: white;
-  font-size: 30px; /* Augmenter la taille des icônes pour les rendre plus visibles */
+  border: none;
+  height: 50px;
+ width: 230px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 2px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer {
-  text-align: right;
-  margin-top: 20px;
-  color: #007dc4;
+.green-button:hover {
+  background-color: #A93D87;
 }
-.Medecin{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-right: 100px;
-  position: relative;
-}  
-.accueil-image {
-  width: 120px; /* Ajuste cette valeur pour la largeur souhaitée */
-  height: 180px; /* Ajuste cette valeur pour la hauteur souhaitée */
-  object-fit: cover; 
+.tout-temoignage{
+  margin-left: 700px;
 }

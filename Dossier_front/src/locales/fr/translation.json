@@ -1,8 +1,8 @@
 {
     "header": {
       "phone1": " +237 655 45 67 89|",
-      "phone2": "  +237 675 070 050 ",
-      "phone3": " | +33 7 58 10 31 17",
+      "phone2": "+237 675 070 050",
+      "phone3": " |+33 7 58 10 31 17",
       "email": "akuetche55@gmail.com",
       "position": "Ndogbong-Douala",
       "home": "Accueil",
@@ -14,8 +14,8 @@
       "login": "Connexion"
     },
     "accueil": {
-      "title": "Accueil",
-      "description": "Le sanctuaire d'e-santé pour orchestrer son calendrier de bien-être."
+      "title": "Mobiliis",
+      "description": "Avec Mobiliis, Voyager sans frontières pour: étudier, explorer et evoluer. "
     }
   }
   

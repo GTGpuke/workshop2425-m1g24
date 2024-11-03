@@ -1,7 +1,16 @@
     .chatbot-container {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 10px;
     z-index: 1000;
-    width: 300px;
+    width: 270px;
+  }
+  @media (max-width: 1000px) {
+    .chatbot-container {
+      position: fixed;
+      bottom: 50px;
+      right: 10px;
+      z-index: 1000;
+      width: 270px;
+    }
   }

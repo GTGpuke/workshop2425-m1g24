@@ -11,11 +11,16 @@ import PlaceIcon from '@mui/icons-material/Place';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
+
+
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [showLangMenu, setShowLangMenu] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showServicesMenu, setShowServicesMenu] = useState(false);
+  const [showMobiliisMenu, setShowMobiliisMenu] = useState(false);
+  const [showOffersMenu, setShowOffersMenu] = useState(false);
   const { i18n, t } = useTranslation();
 
   const changeLanguage = (lng) => {
@@ -51,23 +56,45 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  // gestion des sous-menus
+  const handleMouseEnter = () => {
+    setShowServicesMenu(true);
+  };
+  const handleMouseLeave = () => {
+    setShowServicesMenu(false);
+  };
+
+  const handleMobiliisMouseEnter = () => {
+    setShowMobiliisMenu(true);
+  };
+  const handleMobiliisMouseLeave = () => {
+    setShowMobiliisMenu(false);
+  };
+
+  const handleOffersMouseEnter = () => {
+    setShowOffersMenu(true);
+  };
+  const handleOffersMouseLeave = () => {
+    setShowOffersMenu(false);
+  };
   return (
 
     <>
 
       {menuOpen && <div className="backdrop" onClick={toggleMenu}></div>}
-
       <header className='head'>
         <div className="header-infos">
-          <div className="tel"><CallIcon className="phone-icon" />
+          <div className="tel">
             <div className="phone-numbers">
+            <span> <CallIcon className="phone-icon" />  </span>
               <span>{t('header.phone1')}</span>
               <span>{t('header.phone2')}</span>
               <span>{t('header.phone3')}</span>
-            </div> 
+
+            </div>
           </div>
-          <div className="information">
-            <div className="email"><p><MailOutlineIcon /> {t('header.email')}</p></div>
+          <div className="informat">
+            <div className="email" sytle={{ color: 'white' }}><p><MailOutlineIcon /> {t('header.email')}</p></div>
             <div className="lieu"><p><PlaceIcon /> {t('header.position')}</p></div>
           </div>
         </div>
@@ -86,23 +113,75 @@ const Header = () => {
               <li className="navItem">
                 <Link to="/" className="navLink" onClick={toggleMenu}>{t('header.home')}</Link>
               </li>
+
+
+              <li
+                className="navItem"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                style={{ position: 'relative' }}
+              >
+                <Link to="/home" className="navLink">
+                  {t('header.services')} <KeyboardArrowDownIcon />
+                </Link>
+                {showServicesMenu && (
+                  <ul className="subMenu">
+                    <li><Link to="/services/immigration">Services d'immigration</Link></li>
+                    <li><Link to="/services/accompagnement">Services d'accompagnement</Link></li>
+                    <li><Link to="/services/formation">Formation linguistique</Link></li>
+                    <li><Link to="/services/informations">Tarifs prestations</Link></li>
+                    <li><Link to="/services/avantages">Avantages Mobiliis</Link></li>
+                  </ul>
+                )}
+              </li>
+
+
+              <li
+                className="navItem"
+                onMouseEnter={handleMobiliisMouseEnter}
+                onMouseLeave={handleMobiliisMouseLeave}
+                style={{ position: 'relative' }}
+              >
+                <Link to="#" className="navLink">
+                  {t('header.mobiliis')} <KeyboardArrowDownIcon />
+                </Link>
+                {showMobiliisMenu && (
+                  <ul className="subMenu">
+                    <li><Link to="/presentation">Présentation</Link></li>
+                    <li><Link to="/mobiliis/avantages">Nos avantages employés</Link></li>
+                    <li><Link to="/mobiliis/partenariats">Nos partenariats</Link></li>
+                  </ul>
+                )}
+              </li>
+
+              <li
+                className="navItem"
+                onMouseEnter={handleOffersMouseEnter}
+                onMouseLeave={handleOffersMouseLeave}
+                style={{ position: 'relative' }}
+              >
+                <Link to="#" className="navLink">
+                  {t('header.offers')} <KeyboardArrowDownIcon />
+                </Link>
+                {showOffersMenu && (
+                  <ul className="subMenu">
+                    <li><Link to="/offers/offer1">Offres d'emploi</Link></li>
+                    <li><Link to="/offers/offer2">Processus recrutement</Link></li>
+                    <li><Link to="/offers/offer3">témoignages</Link></li>
+                  </ul>
+                )}
+              </li>
+
               <li className="navItem">
-                <Link to="/home" className="navLink" onClick={toggleMenu}>{t('header.services')} <KeyboardArrowDownIcon /></Link>
+                <Link to="/medecin" className="navLink" >{t('header.destinations')}<KeyboardArrowDownIcon />
+                </Link>
               </li>
               <li className="navItem">
-                <Link to="/medecin" className="navLink" onClick={toggleMenu}>{t('header.mobiliis')}</Link>
-              </li>
-              <li className="navItem">
-                <Link to="/destinations" className="navLink" onClick={toggleMenu}>{t('header.destinations')} <KeyboardArrowDownIcon /></Link>
-              </li>
-              <li className="navItem">
-                <Link to="/profil" className="navLink" onClick={toggleMenu}>{t('header.offers')}</Link>
+                <Link to="/contact" className="navLink" >Contact
+                </Link>
               </li>
             </ul>
           </nav>
-
-
-
           <div className="avatarContainer">
             <div
               className="langIconContainer"

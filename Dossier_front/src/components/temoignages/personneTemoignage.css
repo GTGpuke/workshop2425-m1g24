@@ -1,0 +1,112 @@
+.temoignons {
+    text-align: center;
+    padding: 20px;
+    /* background-color: aqua; */
+    width: 100%;
+  }
+  
+  .title {
+    color: #1976D2;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .temoignages-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-right: 35px;
+  }
+  
+  .temoignage-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 30px);/* 25% pour quatre cartes avec espace */
+    padding: 20px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .temoignage-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .temoignage-image-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .temoignage-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .temoignage-content {
+    text-align: center;
+  }
+  
+  .temoignage-message {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .temoignage-nom {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  /* Style pour le bouton */
+  .read-button {
+    background-color: #1976D2;
+    color: white;
+    border: none;
+    height: 60px;
+   width: 300px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .read-button:hover {
+    background-color: #A93D87;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .temoignage-card {
+      width: calc(33.33% - 20px); /* Trois cartes par ligne */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .temoignage-card {
+      width: calc(50% - 20px); /* Deux cartes par ligne */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .temoignage-card {
+      width: 100%; /* Une carte par ligne */
+    }
+  }
+  

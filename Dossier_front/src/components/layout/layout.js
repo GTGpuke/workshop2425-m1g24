@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import Footer from './Footer';
+//import Footer from './Footer';
 import Chatbot from './Chatbot';
 
 import CallButton from './Buttons/callButton';
 import BrochureButton from './Buttons/brochureButton'; // Utilise BrochureButton avec une majuscule
 import ScrollToTop from './ScrollToTop';
 
-import Contact from './contact';
+// import Contact from './contact';
 
 import { Link, useLocation } from 'react-router-dom';
 import './layout.css';
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      {!hideElements && <Header />}
+      {/* {!hideElements && <Header />} */}
       <div className="layout-container">
         {!hideHeaderFooter && <Header />}
 
@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
           <div className='call'> <ScrollToTop /></div>
           <div className='call'> <CallButton /></div>
           <div className='call'> <BrochureButton /></div>
-          <div className="chatbot-container">
+          {/* <div className="chatbot-container">
             <img
               src="/images/chatjpt-removebg.png"
               alt="MiniCare Logo"
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
               </div>
             )}
             <ScrollToTop />
-          </div>
+          </div> */}
 
           {!hideHeaderFooter && (
             <div className="chatbot-container">
@@ -71,16 +71,15 @@ const Layout = ({ children }) => {
                     <h4>Chat</h4>
                     <CloseIcon className="close-icon" onClick={toggleChatbot} />
                   </div>
-                  <Contact />
+                  {/* <Contact /> */}
                   <Chatbot />
                 </div>
               )}
-              <Link to="/" className="email-link">Envoyez-nous un email</Link>
             </div>
           )}
         </main>
 
-        {!hideHeaderFooter && <Footer />}
+         {/* {!hideHeaderFooter && <Footer />}  */}
       </div>
     </div>
   );
