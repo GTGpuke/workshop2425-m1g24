@@ -1,0 +1,35 @@
+.notice-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    position: relative;
+  }
+  
+  .notice-header h2 {
+    font-size: 1.8rem;
+    color: #C90076;
+  }
+  
+  .notice-content {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #C90076;
+    border-radius: 50%;
+    padding: 8px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

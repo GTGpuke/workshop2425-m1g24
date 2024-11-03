@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importer le hook useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';

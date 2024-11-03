@@ -1,0 +1,104 @@
+.choix-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px !important; /* Augmente l'espace entre les cartes */
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1400px;
+  }
+  
+  .choix-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(33.333% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation pour agrandir au survol */
+  }
+  
+  .choix-card:hover {
+    transform: scale(1.05); /* Agrandit la carte au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus forte au survol */
+  }
+  
+  .choix-image-wrapper {
+    height: 60%;
+    overflow: hidden;
+  }
+  
+  .choix-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .choix-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .choix-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .choix-description {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .choix-button {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #004080; /* Couleur par défaut */
+    transition: background-color 0.3s ease; /* Animation de la couleur */
+  }
+  
+  .choix-button:hover {
+    background-color: #A93D87 !important; /* Couleur au survol */
+  }
+  
+  .choix-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .choix-flag {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .flag-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .choix-card {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .choix-card {
+      width: 100%;
+    }
+  }
+  

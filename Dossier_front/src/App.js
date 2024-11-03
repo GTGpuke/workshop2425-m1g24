@@ -10,6 +10,8 @@ import Medecin from "./components/authentification/medecin";
 import TelechargeBrochure from "./components/authentification/telechargeBrochure";
 import Contact from "./components/authentification/contact";
 import NotFound from './components/authentification/NotFound';
+import Choix from './components/mesChoix/choix';
+import Notice from './components/mesChoix/notice';
 import Presentation from "./components/mobiliis/presentation";
 import Temoignage from "./components/temoignages/temoignage";
 import ToutTemoignages from "./components/temoignages/toutTemoignages";
@@ -35,6 +37,8 @@ const App = () => {
           <Route path="/temoignage" element={<Temoignage />} />
           <Route path="/toutTemoignages" element={<ToutTemoignages />} />
           <Route path="/personneTemoignage" element={<PersonneTemoignage />} />
+          <Route path="/choix" element={<Choix />} />
+          <Route path="/notice" element={<Notice />} />
         </Routes>
       </Layout>
     </Router>
