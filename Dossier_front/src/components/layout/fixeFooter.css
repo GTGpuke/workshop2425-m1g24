@@ -1,0 +1,23 @@
+.fixe-button {
+    display: none; /* Masquer le composant par défaut */
+  }
+  
+  @media (max-width: 800px) {
+    .fixe-button {
+      display: flex; /* Affiche le composant en mode responsive */
+      background-color: #A93D87; /* Couleur de fond */
+      position: fixed;
+      bottom: 0;
+      width: 100%; 
+      justify-content: space-around; /* Espacement entre les boutons */
+      padding: 10px;
+      z-index: 1000; 
+      height: 70px;
+    }
+  
+    .appel {
+      flex: 1; /* Pour que les boutons occupent un espace équitable */
+      text-align: center; /* Centre les boutons à l'intérieur */
+    }
+  }
+  

@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 const CallButton = () => {
   const phoneNumber = "+237655196254"; 
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1000);
+      setIsMobile(window.innerWidth < 800);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -30,12 +30,15 @@ const CallButton = () => {
       position: 'fixed', 
       top: '220px',
       right: '20px',   
-      zIndex: isMobile ? 1000 : 1, // Applique le z-index en fonction de l'état isMobile
     },
     icon: {
       fontSize: '24px',
     },
   };
+
+  if (isMobile) {
+    return null; // Ne rend pas le bouton si la vue est mobile (moins de 1000px)
+  }
 
   return (
     <a href={`tel:${phoneNumber}`} style={styles.button}>

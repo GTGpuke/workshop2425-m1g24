@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ScrollToTop.css'; // Pour styliser le bouton
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +34,7 @@ const ScrollToTop = () => {
     <div className="scroll-to-top">
       {isVisible && (
         <div onClick={scrollToTop} className="scroll-button">
-          <span>↑ vers le haut</span>
+          <span> <KeyboardArrowUpIcon/></span>
         </div>
       )}
     </div>
