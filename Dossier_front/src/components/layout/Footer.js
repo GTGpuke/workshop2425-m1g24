@@ -11,12 +11,13 @@ import './Footer.css';
 export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: '#004080', color: 'white', py: 4 }}>
-      <Grid container spacing={4} justifyContent="center" sx={{ height: '290px', bgcolor: '#004080' }}>
-        <Grid item xs={12} sm={3}>
+      <Grid container spacing={4} justifyContent="center" sx={{ bgcolor: '#004080' }}>
+        <Grid item xs={12} sm={3} sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
           <Typography variant="h6" gutterBottom>ESCG PARIS</Typography>
           <Typography>ÉCOLE SUPÉRIEURE DE COMMERCE ET DE GESTION</Typography>
         </Grid>
-        <Grid item xs={12} sm={3} sx={{ gap: '10px' }}>
+
+        <Grid item xs={12} sm={3} sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
           <Typography variant="h6" gutterBottom>CONTACTEZ-NOUS</Typography>
           <Stack spacing={2}>
             <Typography>+33 (0)1 56 02 00 50</Typography>
@@ -26,7 +27,7 @@ export default function Footer() {
           </Stack>
         </Grid>
 
-        <Grid item xs={12} sm={2}>
+        <Grid item xs={12} sm={2} sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
           <Typography variant="h6" gutterBottom>ESCG-PARIS</Typography>
           <Typography>L'école</Typography>
           <Typography>Témoignages</Typography>
@@ -34,34 +35,22 @@ export default function Footer() {
           <Typography>Financement</Typography>
           <Typography>Frais de scolarité</Typography>
         </Grid>
-        <Grid item xs={12} sm={2}>
+
+        <Grid item xs={12} sm={2} sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
           <Typography variant="h6" gutterBottom>INFORMATIONS LÉGALES</Typography>
           <Stack spacing={2}>
             <Link href="/mentions-legales" color="inherit" underline="hover">
               <Typography>Mentions Légales</Typography>
             </Link>
-
             <Link href="/politique-confidentialite" color="inherit" underline="hover">
               <Typography>Politique de confidentialité</Typography>
             </Link>
-
             <Link href="/cookies-consentement" color="inherit" underline="hover">
               <Typography>Cookies et consentement</Typography>
             </Link>
-
-            <Link
-              href="/conditions-generales-ventes"
-              color="inherit"
-              sx={{ textDecoration: 'none',
-                '&:hover': {
-                  color: '#A93D87',
-                  textDecoration: 'none',
-                },
-              }}
-            >
+            <Link href="/conditions-generales-ventes" color="inherit" underline="hover" sx={{ '&:hover': { color: '#A93D87' } }}>
               <Typography>Conditions Générales de Ventes</Typography>
             </Link>
-
             <Link href="/reglement-interieur" color="inherit" underline="hover">
               <Typography>Règlement Intérieur de l'ESCG-PARIS</Typography>
             </Link>
@@ -89,17 +78,9 @@ export default function Footer() {
         </Typography>
         <Typography variant="body2">Mise à jour : le 31 Octobre 2024</Typography>
 
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 4,
-            mt: 2,
-            color: 'white',
-          }}
-        >
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 5, mt: 2 }}>
           <IconButton>
-            <LinkedInIcon sx={{ color: 'white', fontSize: 32 }} /> {/* Augmente la taille à 32px */}
+            <LinkedInIcon sx={{ color: 'white', fontSize: 32 }} />
           </IconButton>
           <IconButton>
             <InstagramIcon sx={{ color: 'white', fontSize: 32 }} />
@@ -115,8 +96,6 @@ export default function Footer() {
           </IconButton>
         </Box>
       </Box>
-
-
     </Box>
   );
 }

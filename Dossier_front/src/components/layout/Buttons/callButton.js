@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 
 const CallButton = () => {
   const phoneNumber = "+237655196254"; 
-
   const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 
   useEffect(() => {
@@ -11,6 +10,8 @@ const CallButton = () => {
       setIsMobile(window.innerWidth < 800);
     };
     window.addEventListener('resize', handleResize);
+
+    // Nettoyage de l'écouteur pour éviter les fuites de mémoire
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -36,8 +37,9 @@ const CallButton = () => {
     },
   };
 
+  // Si `isMobile` est vrai, ne pas afficher le bouton
   if (isMobile) {
-    return null; // Ne rend pas le bouton si la vue est mobile (moins de 1000px)
+    return null;
   }
 
   return (

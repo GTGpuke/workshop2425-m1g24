@@ -108,7 +108,7 @@
 }
 
 .navItem:hover {
-  color: #ffeb3b; /* Couleur jaune lors du survol */
+  color: #A93D87; /* Couleur jaune lors du survol */
 }
 
 /* Avatar et menu déroulant */
@@ -136,9 +136,9 @@
   padding: 5px 10px;
 }
 
-.logoutLabel:hover, .navLink:hover {
+/* .logoutLabel:hover, .navLink:hover {
   background-color: #00bcd4;
-}
+} */
 
 .langMenu {
   position: absolute;
@@ -205,6 +205,7 @@
 .nav-list {
   display: flex;
   list-style: none;
+  gap: 30px;
 }
 
 .navItem {
@@ -215,6 +216,7 @@
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
+  
 }
 .backdrop {
   position: fixed;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -16,16 +16,16 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function BrochureButton() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     nom: '',
     prenom: '',
     email: '',
     telephone: ''
   });
 
-  const navigate = useNavigate(); // Initialiser le hook de navigation
+  const navigate = useNavigate();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,14 +45,21 @@ export default function BrochureButton() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Vérifiez si tous les champs sont remplis
+    if (!formData.nom || !formData.prenom || !formData.email || !formData.telephone) {
+      alert("Veuillez remplir tous les champs.");
+      return;
+    }
+
     try {
       await axios.post('/api/enregistrer', formData);
-      handleClose(); // Ferme le dialogue
-      navigate('/telechargeBrochure'); // Navigation vers TelechargeBrochure
+      handleClose();
+      navigate('/telechargeBrochure');
     } catch (error) {
       console.error('Erreur lors de la soumission du formulaire :', error);
       handleClose();
-      navigate('/telechargeBrochure'); // Navigue même en cas d'erreur
+      navigate('/telechargeBrochure'); 
     }
   };
 
@@ -63,7 +70,6 @@ export default function BrochureButton() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
 
   const styles = {
     button: {
@@ -84,7 +90,7 @@ export default function BrochureButton() {
       zIndex: isMobile ? 1000 : 1,
     },
     icon: {
-      fontSize: '24px',
+      fontSize: '30px',
     },
   };
 
@@ -99,14 +105,17 @@ export default function BrochureButton() {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        maxWidth="md" // Agrandit le dialogue
+        fullWidth // Utilise toute la largeur disponible
+        sx={{width: '580px', height:'500px', marginLeft: '700px', marginTop: '220px'}}
       >
-        <DialogTitle>
+        <DialogTitle className="dialog-title">
           {"Télécharger notre documentation"}
-          <Button onClick={handleClose} style={{ position: 'absolute', right: 16, top: 16 }}>X</Button>
+          <Button onClick={handleClose} style={{ position: 'absolute', left: 206, bottom: 206 }}>X</Button>
         </DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
-            <DialogContentText>
+            <DialogContentText className="dialog-text">
               Veuillez remplir ce formulaire.
             </DialogContentText>
             <input
@@ -116,7 +125,7 @@ export default function BrochureButton() {
               value={formData.nom}
               onChange={handleChange}
               required
-              style={{ display: 'block', margin: '8px 0' }}
+              className="dialog-input"
             />
             <input
               type="text"
@@ -125,7 +134,7 @@ export default function BrochureButton() {
               value={formData.prenom}
               onChange={handleChange}
               required
-              style={{ display: 'block', margin: '8px 0' }}
+              className="dialog-input"
             />
             <input
               type="email"
@@ -134,7 +143,7 @@ export default function BrochureButton() {
               value={formData.email}
               onChange={handleChange}
               required
-              style={{ display: 'block', margin: '8px 0' }}
+              className="dialog-input"
             />
             <input
               type="tel"
@@ -143,15 +152,12 @@ export default function BrochureButton() {
               value={formData.telephone}
               onChange={handleChange}
               required
-              style={{ display: 'block', margin: '8px 0' }}
+              className="dialog-input"
             />
-            <DialogActions>
-              <Button onClick={handleClose}>Annuler</Button>
-              <Button onClick={handleSubmit} type="button">
-                Valider
-              </Button>
+            <DialogActions className="dialog-actions">
+              <Button onClick={handleClose} className="cancel-button">Annuler</Button>
+              <Button type="submit" className="submit-button">Valider</Button>
             </DialogActions>
-
           </form>
         </DialogContent>
       </Dialog>

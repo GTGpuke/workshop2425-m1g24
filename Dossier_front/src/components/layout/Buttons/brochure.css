@@ -12,8 +12,10 @@
     font-size: 1.2rem;
     color: #007bff;
     cursor: pointer;
+    top: 100px;
     border: none;
     background: none;
+    position: fixed;
   }
   
   /* Style pour le texte d'instruction */
@@ -25,7 +27,7 @@
   
   /* Style pour les champs de saisie */
   .dialog-input {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: 1rem;
     margin: 8px 0;
