@@ -14,11 +14,10 @@ const Medecin = () => {
   const handleContactClick = () => {
     navigate('/contact'); 
   };
-
   const handleTemoignageClick = () => {
     navigate('/toutTemoignages'); 
   };
-
+ 
   return (
     <Box className="medecin-container">
       <div className="flou">
@@ -42,6 +41,9 @@ const Medecin = () => {
           Lire tous les témoignages <ChevronRightIcon style={{ fontSize: '20px', marginLeft: '5px' }} />
         </button>
       </div><br />
+      <div className="temoignage">
+      <img src="/images/download.jpeg" alt="avion" />
+      </div>
     </Box>
   );
 };

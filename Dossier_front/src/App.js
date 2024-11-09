@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Accueil from "./components/authentification/accueil";
 import Home from "./components/authentification/home";
+import Logement from "./components/authentification/logement";
 import Inscription from "./components/authentification/inscription";
 import Connexion from "./components/authentification/connexion";
 import ForgetPassword from "./components/authentification/forgetPassword";
@@ -12,6 +13,7 @@ import Contact from "./components/authentification/contact";
 import NotFound from './components/authentification/NotFound';
 import Choix from './components/mesChoix/choix';
 import Notice from './components/mesChoix/notice';
+import France from './components/mesChoix/france';
 import Presentation from "./components/mobiliis/presentation";
 import Temoignage from "./components/temoignages/temoignage";
 import ToutTemoignages from "./components/temoignages/toutTemoignages";
@@ -31,6 +33,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/logement" element={<Logement />} />
           <Route path="/medecin" element={<Medecin />} />
           <Route path="/telechargeBrochure" element={<TelechargeBrochure />} />
           <Route path="/presentation" element={<Presentation />} />
@@ -39,6 +42,7 @@ const App = () => {
           <Route path="/personneTemoignage" element={<PersonneTemoignage />} />
           <Route path="/choix" element={<Choix />} />
           <Route path="/notice" element={<Notice />} />
+          <Route path="/france" element={<France />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,65 +1,59 @@
 import React from 'react';
 import { Box, Button, Typography, Card, CardContent, CardMedia } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from 'react-router-dom';
 import './choix.css';
 
 const Choix = () => {
+  const navigate = useNavigate();
+
+  // Fonctions de navigation pour chaque pays
+  const handleFrance = () => {
+    navigate('/france');
+  };
+  const handleCanada = () => {
+    navigate('/canada');
+  };
+  const handleAllemagne = () => {
+    navigate('/allemagne');
+  };
+
+  // Sections de contenu avec les informations nécessaires et la fonction de navigation correspondante
   const sections = [
     {
       title: "Procédure pour le Canada",
       description: "ESCG-PARIS, votre école de choix.",
       image: "/images/brochure.jpeg",
       flag: "/images/canada.jpg",
-      buttonText: "choisir votre procédure",
+      buttonText: "voir votre procédure",
       buttonColor: "#004080",
+      onClick: handleCanada,
     },
     {
       title: "Procédure pour la France",
       description: "Envie de vous réorienter sans perdre.",
       image: "/images/etudiant.jpg",
       flag: "/images/france.jpg",
-      buttonText: "Choisir votre procédure",
-      buttonColor: "#C90076",
+      buttonText: "voir votre procédure",
+      buttonColor: "#004080",
+      onClick: handleFrance,
     },
     {
       title: "Procédure pour l'Allemagne",
       description: "Toute l’année, des Job Dating sont organisés.",
       image: "/images/avion.jpg",
       flag: "/images/Allemagne.jpg",
-      buttonText: "JE M'INSCRIS AUX JOB DATING",
+      buttonText: "voir",
       buttonColor: "#004080",
+      onClick: handleAllemagne,
     },
-    {
-        title: "Procédure pour le Canada",
-        description: "ESCG-PARIS, votre école de choix.",
-        image: "/images/brochure.jpeg",
-        flag: "/images/canada.jpg",
-        buttonText: "choisir votre procédure",
-        buttonColor: "#004080",
-      },
-      {
-        title: "Procédure pour la France",
-        description: "Envie de vous réorienter sans perdre.",
-        image: "/images/etudiant.jpg",
-        flag: "/images/france.jpg",
-        buttonText: "Choisir votre procédure",
-        buttonColor: "#C90076",
-      },
-      {
-        title: "Procédure pour l'Allemagne",
-        description: "Toute l’année, des Job Dating sont organisés.",
-        image: "/images/avion.jpg",
-        flag: "/images/Allemagne.jpg",
-        buttonText: "JE M'INSCRIS AUX JOB DATING",
-        buttonColor: "#004080",
-      },
   ];
 
   return (
     <Box className="choix-container">
-        <div className="titre">
+      <div className="titre">
         <h6> Découvrir toutes nos destinations pour votre voyage </h6>
-        </div>
+      </div>
       {sections.map((section, index) => (
         <Card className="choix-card" key={index}>
           <div className="choix-image-wrapper">
@@ -89,6 +83,7 @@ const Choix = () => {
             className="choix-button"
             style={{ backgroundColor: section.buttonColor }}
             endIcon={<MenuIcon />}
+            onClick={section.onClick} // Appel de la fonction de navigation spécifique au pays
           >
             {section.buttonText}
           </Button>

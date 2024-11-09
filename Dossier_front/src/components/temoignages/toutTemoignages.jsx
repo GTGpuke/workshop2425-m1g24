@@ -8,7 +8,7 @@ const Temoignages = () => {
       <div className="background-section">
         <img src="/images/bureau.jpeg" alt="Background" className="background-image" />
         <div className="breadcrumb">
-          Accueil » Témoignages
+          Accueil »  <p style={{fontWeight: 'bold', fontSize: '40px', marginLeft: '50px'}}>Témoignages</p> 
         </div>
       </div>
       <div className="content-section">

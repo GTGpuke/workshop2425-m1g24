@@ -101,7 +101,7 @@ const Header = () => {
 
         <div className="header-main">
           <div className="logo">
-            <img src="/images/Manitour.png" alt="MiniCare Logo" className="logoImage" />
+            <img src="/images/Manitour.png" alt="Mobiliis Logo" className="logoImage" />
             <h4 className="slogan">Mobiliis Project Agency</h4>
           </div>
 
@@ -131,6 +131,7 @@ const Header = () => {
                     <li><Link to="/services/formation">Formation linguistique</Link></li>
                     <li><Link to="/services/informations">Tarifs prestations</Link></li>
                     <li><Link to="/services/avantages">Avantages Mobiliis</Link></li>
+                    <li><Link to="/logement">Recherche logement</Link></li>
                   </ul>
                 )}
               </li>

@@ -1,0 +1,113 @@
+/* Styles généraux */
+.temoignages-page {
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Section d'arrière-plan avec l'image */
+  .background-section {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+  
+  /* Style pour le breadcrumb */
+  .breadcrumb {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+  }
+  
+  /* Section de contenu avec chevauchement */
+  .content-section {
+    max-width: 100%;
+    width: 90%;
+    margin: -50px auto 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Superposition pour le titre */
+  .overlay {
+    margin-bottom: 20px;
+    color: #C90076;
+    text-align: center;
+  }
+  
+  .overlay h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Style de texte */
+  .content-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .highlighted {
+    color: #C90076;
+    font-weight: bold;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .content-section {
+      width: 95%;
+      margin: -40px auto 20px;
+      padding: 20px;
+    }
+  
+    .overlay h1 {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .breadcrumb {
+      font-size: 0.9rem;
+    }
+  
+    .content-section {
+      width: 95%;
+      margin: -30px auto 20px;
+      padding: 15px;
+    }
+  
+    .overlay h1 {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .breadcrumb {
+      font-size: 0.8rem;
+    }
+  
+    .overlay h1 {
+      font-size: 1.2rem;
+    }
+  
+    .content-section {
+      width: 90%;
+      padding: 10px;
+      margin: -20px auto 10px;
+    }
+  }
+  
