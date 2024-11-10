@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import CallIcon from '@mui/icons-material/Call';
-import BrochureButton from './Buttons/brochureButton';
+//import BrochureButton from './Buttons/brochureButton';
 import './fixeFooter.css';
 
 const FixeFooter = () => {
@@ -22,14 +22,12 @@ const FixeFooter = () => {
       height: '50px',
       backgroundColor: '#004080',
       color: 'white',
-     
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',
       textDecoration: 'none',
-      cursor: 'pointer',  
-     
+      cursor: 'pointer',    
     },
     icon: {
       fontSize: '24px',
@@ -42,8 +40,8 @@ const FixeFooter = () => {
       <div className='appel'><a href={`tel:${phoneNumber}`} style={styles.button}>
       <CallIcon style={styles.icon} />: +237 6 55 19 62 54
     </a></div>
-      <div className='appel'><BrochureButton /></div>
-      h1
+      {/* <div className='appel'><BrochureButton /></div>
+      h1 */}
     </div> 
   );
 };

@@ -1,5 +1,5 @@
 .fixe-button {
-    display: none; /* Masquer le composant par défaut */
+    display: none; 
   }
   
   @media (max-width: 800px) {
@@ -16,8 +16,8 @@
     }
   
     .appel {
-      flex: 1; /* Pour que les boutons occupent un espace équitable */
-      text-align: center; /* Centre les boutons à l'intérieur */
+      flex: 1; 
+      text-align: center; 
     }
   }
   

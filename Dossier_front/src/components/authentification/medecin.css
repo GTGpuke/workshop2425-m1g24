@@ -103,3 +103,100 @@
 .tout-temoignage{
   margin-left: 700px;
 }
+
+.presen-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1350px;
+}
+
+.stori-text {
+  color: #333;
+  font-size: 21px;
+  text-align: left;
+  flex: 1;
+  padding: 7px 15px;
+}
+
+.stori-video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.entete{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+
+.title-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.styled-title {
+  display: inline-block;
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #003366; /* Couleur du texte */
+}
+
+.styled-title::before,
+.styled-title::after {
+  content: "";
+  position: absolute;
+  height: 1px; /* Réduction de l'épaisseur du trait */
+  width: 180px; /* Augmentation de la longueur du trait */
+  background-color: #A93D87; /* Couleur du trait */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.styled-title::before {
+  left: -220px; /* Positionnement du trait gauche */
+  border-top: 2px solid #A93D87; /* Bord supérieur en bleu */
+  border-bottom: 2px solid #A93D87; /* Bord inférieur en bleu */
+  border-radius: 2px;
+}
+
+.styled-title::after {
+  right: -220px; /* Positionnement du trait droit */
+  border-top: 2px solid #A93D87; /* Bord supérieur en bleu */
+  border-bottom: 2px solid #A93D87; /* Bord inférieur en bleu */
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #003366;
+  margin-top: 5px;
+}
+
+.learn-more-button {
+  background-color: #1976D2; /* Couleur de fond du bouton */
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  width: 250px;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 270px;
+}
+
+.learn-more-button:hover {
+  background-color: #A93D87; /* Couleur de fond au survol */
+}
+
+.entete-container {
+  border: 1px solid black; /* Bordure noire autour du conteneur */
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 1500px;
+  border-radius: 3px; /* Arrondi des coins de la bordure */
+}

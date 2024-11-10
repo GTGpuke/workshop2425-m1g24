@@ -47,6 +47,33 @@ const Choix = () => {
       buttonColor: "#004080",
       onClick: handleAllemagne,
     },
+    {
+      title: "Procédure pour le Canada",
+      description: "ESCG-PARIS, votre école de choix.",
+      image: "/images/brochure.jpeg",
+      flag: "/images/canada.jpg",
+      buttonText: "voir votre procédure",
+      buttonColor: "#004080",
+      onClick: handleCanada,
+    },
+    {
+      title: "Procédure pour la France",
+      description: "Envie de vous réorienter sans perdre.",
+      image: "/images/etudiant.jpg",
+      flag: "/images/france.jpg",
+      buttonText: "voir votre procédure",
+      buttonColor: "#004080",
+      onClick: handleFrance,
+    },
+    {
+      title: "Procédure pour l'Allemagne",
+      description: "Toute l’année, des Job Dating sont organisés.",
+      image: "/images/avion.jpg",
+      flag: "/images/Allemagne.jpg",
+      buttonText: "voir",
+      buttonColor: "#004080",
+      onClick: handleAllemagne,
+    },
   ];
 
   return (

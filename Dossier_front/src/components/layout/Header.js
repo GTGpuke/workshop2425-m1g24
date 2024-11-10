@@ -21,6 +21,7 @@ const Header = () => {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
   const [showMobiliisMenu, setShowMobiliisMenu] = useState(false);
   const [showOffersMenu, setShowOffersMenu] = useState(false);
+  const [showDestinationMenu, setShowDestinationMenu] = useState(false);
   const { i18n, t } = useTranslation();
 
   const changeLanguage = (lng) => {
@@ -76,6 +77,12 @@ const Header = () => {
   };
   const handleOffersMouseLeave = () => {
     setShowOffersMenu(false);
+  };
+  const handleDestinationMouseEnter = () => {
+    setShowDestinationMenu(true);
+  };
+  const handleDestinationMouseLeave = () => {
+    setShowDestinationMenu(false);
   };
   return (
 
@@ -173,9 +180,21 @@ const Header = () => {
                 )}
               </li>
 
-              <li className="navItem">
+              <li  className="navItem"
+                onMouseEnter={handleDestinationMouseEnter}
+                onMouseLeave={handleDestinationMouseLeave}
+                style={{ position: 'relative' }}>
                 <Link to="/medecin" className="navLink" >{t('header.destinations')}<KeyboardArrowDownIcon />
                 </Link>
+                {showDestinationMenu && (
+                  <ul className="subMenu">
+                    <li><Link to="/canada">Canada</Link></li>
+                    <li><Link to="/france">France</Link></li>
+                    <li><Link to="/allemagne">Allemagne</Link></li>
+                    <li><Link to="/belgique">Belgique</Link></li>
+                    <li><Link to="/espagne">ESpagne</Link></li>
+                  </ul>
+                )}
               </li>
               <li className="navItem">
                 <Link to="/contact" className="navLink" >Contact

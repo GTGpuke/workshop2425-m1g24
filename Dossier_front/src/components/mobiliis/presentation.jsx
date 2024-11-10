@@ -36,6 +36,22 @@ const Presentation = () => {
                     </div>
                 </div>
             </div>
+            <div className="presentation-story">
+                <div className="story-text">
+                    <p style={{color: 'white', fontSize: '22px'}}>Créé en 2009, Bridge To Study est un cabinet spécialisé dans le conseil en stratégie de formation et d’orientation des étudiants dans leur projet d’études à l’étranger. Plaçant l’avenir des étudiants au cœur de sa mission. Notre cabinet s’est, depuis le début, engagé à satisfaire au mieux leurs inquiétudes, boostant de faite leur carrière de sorte à lui donner une dimension internationale. C’est pourquoi nous avons noué des partenariats soudés avec les plus prestigieuses universités et grandes écoles du monde pour garantir un avenir sûr et des chances de succès réelles à nos étudiants.</p>
+                </div>
+                <div className="story-video">
+                    <iframe
+                        width="500"
+                        height="350"
+                        src="https://www.youtube.com/embed/LTAhX568Esk"
+                        title="Bridge To Study Video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
+            </div>
             <br /><br />
             <div className="statistics-section">
                 <h2>Mobiliis et ses statistiques</h2>
