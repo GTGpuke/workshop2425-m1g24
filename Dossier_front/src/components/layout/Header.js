@@ -109,7 +109,7 @@ const Header = () => {
         <div className="header-main">
           <div className="logo">
             <img src="/images/Manitour.png" alt="Mobiliis Logo" className="logoImage" />
-            <h4 className="slogan">Mobiliis Project Agency</h4>
+            <h4 className="slogan">Mobiliis Agency</h4>
           </div>
 
           <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
@@ -226,16 +226,10 @@ const Header = () => {
               <PersonIcon style={{ width: "60px", height: "60px", marginRight: "10px", color: "#004080", cursor: "pointer" }} />
 
               {showProfileMenu && (
-                <div className="dropdownMenu">
-                  {isLoggedIn ? (
-                    <span className="logoutLabel" onClick={handleLogout}>
-                      {t('header.logout')}
-                    </span>
-                  ) : (
-                    <Link to="/connexion" className="navLink" onClick={() => setShowProfileMenu(false)}>
-                      {t('header.login')}
-                    </Link>
-                  )}
+                <div className="dropdownMenu" style={{backgroundColor: 'white', width:'150px', height:'100px'}}>
+                  <li><Link to="/inscrption">s'inscrire</Link></li>
+                    <li><Link to="/connexion">Se connecter</Link></li>
+                    <li><Link to="/allemagne">Mon compte</Link></li>
                 </div>
               )}
             </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
+import CloseIcon from '@mui/icons-material/Close';
+import './chatbot.css';
 
 // Définir un thème personnalisé
 const theme = {
@@ -31,7 +33,7 @@ const steps = [
   },
   {
     id: '3',
-    message: 'Quelest votre questions ?',
+    message: 'Quel est votre question ?',
     trigger: '5',
   },
   {
@@ -57,15 +59,22 @@ const steps = [
   {
     id: '8',
     message: 'Merci pour ces informations concernant "{previousValue}", je vais revenir vers vous bientôt.',
-    end: true, // Fin de la conversation après avoir demandé plus de détails
+    end: true,
   },
 ];
 
-const Chatbot = () => {
+const Chatbot = ({ closeChat }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <ChatBot steps={steps} />
-    </ThemeProvider>
+    <div className="chatbot-container">
+      <ThemeProvider theme={theme}>
+        <ChatBot
+          steps={steps}
+          headerTitle="Assitance Mobiliis"
+          hideSubmitButton
+        />
+      </ThemeProvider>
+      <CloseIcon className="chatbot-close-icon" onClick={closeChat} />
+    </div>
   );
 };
 

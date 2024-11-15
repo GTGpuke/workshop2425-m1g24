@@ -1,16 +1,36 @@
-    .chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    z-index: 1000;
-    width: 270px;
-  }
-  @media (max-width: 1000px) {
-    .chatbot-container {
-      position: fixed;
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 70px;
+  z-index: 1000;
+  width: 300px; /* Augmente légèrement la largeur */
+}
+
+/* Positionner l'icône de fermeture en haut à droite dans l'en-tête */
+.chatbot-close-icon {
+  position: absolute;
+  top: 12px;
+  left: 305px;
+  color: white;
+  cursor: pointer;
+  z-index: 1005;
+  font-size: 20px;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 1000px) {
+  .chatbot-container {
       bottom: 50px;
       right: 10px;
-      z-index: 1000;
-      width: 270px;
-    }
+      width: 270px; 
   }
+}
+
+@media (max-width: 600px) {
+  .chatbot-container {
+      bottom: 20px;
+      right: 5px;
+      width: 100%; 
+      max-width: 320px;
+  }
+}

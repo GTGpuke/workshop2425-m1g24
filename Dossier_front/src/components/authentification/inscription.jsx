@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './inscription.css'; 
+import { Link } from 'react-router-dom';
+import './inscription.css';
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -36,24 +37,24 @@ const Inscription = () => {
     <div className="inscription-container">
       <h2 className="inscription-title">Inscription</h2>
       <form onSubmit={handleSubmit} className="inscription-form">
-        <div className="inscription-row">
-          <input
-            type="text"
-            name="nom"
-            value={formData.nom}
-            onChange={handleChange}
-            placeholder="Nom"
-            className="inscription-input"
-          />
-          <input
-            type="text"
-            name="prenom"
-            value={formData.prenom}
-            onChange={handleChange}
-            placeholder="Prénom"
-            className="inscription-input"
-          />
-        </div>
+        <input
+          type="text"
+          name="nom"
+          value={formData.nom}
+          onChange={handleChange}
+          placeholder="Nom"
+          className="inscription-input"
+        />
+
+        <input
+          type="text"
+          name="prenom"
+          value={formData.prenom}
+          onChange={handleChange}
+          placeholder="Prénom"
+          className="inscription-input"
+        />
+
         <input
           type="email"
           name="email"
@@ -62,6 +63,7 @@ const Inscription = () => {
           placeholder="Adresse email"
           className="inscription-input"
         />
+
         <input
           type="password"
           name="mot_de_passe"
@@ -70,6 +72,7 @@ const Inscription = () => {
           placeholder="Mot de passe"
           className="inscription-input"
         />
+
         <input
           type="text"
           name="telephone"
@@ -78,10 +81,15 @@ const Inscription = () => {
           placeholder="Numéro de téléphone"
           className="inscription-input"
         />
+
         <button type="submit" className="inscription-button">
           Valider
         </button>
       </form>
+
+      <p className="inscription-login-link">
+        Déjà inscrit ? <Link to="/connexion" style={{ color: '#A93D87' }}>Connectez-vous</Link>
+      </p>
     </div>
   );
 };

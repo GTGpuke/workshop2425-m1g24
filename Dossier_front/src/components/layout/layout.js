@@ -14,21 +14,29 @@ const Layout = ({ children }) => {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const location = useLocation();
 
-  // Pages où le chatbot, le header, et le footer doivent être masqués
-  const hideElements = ['/inscription', '/connexion', '/forgetPassword'].includes(location.pathname);
+  // Vérifie si la page est admin
+  const isAdminPage = location.pathname === '/admin';
+  const hideElements = ['/inscription', '/connexion', '/forgetPassword', '/admin'].includes(location.pathname);
 
   const toggleChatbot = () => {
     setIsChatbotOpen(!isChatbotOpen);
   };
 
+  const closeChatbot = () => {
+    setIsChatbotOpen(false);
+  };
+
   return (
     <div>
       <div className="layout-container">
-        {!hideElements && <Header />}
+        {/* Masque uniquement le Header et autres éléments supplémentaires sur la page admin */}
+        {!isAdminPage && <Header />}
 
         <main>
-          {children}
-          {!hideElements && (
+          {children} {/* Affiche le contenu de la page admin ou d'autres pages */}
+
+          {/* Affiche uniquement ces éléments si on n'est pas sur la page admin */}
+          {!isAdminPage && !hideElements && (
             <>
               <div className="call"><ScrollToTop /></div>
               <div className="call"><CallButton /></div>
@@ -37,29 +45,30 @@ const Layout = ({ children }) => {
           )}
 
           {/* Chatbot Toggle */}
-          {!hideElements && (
+          {!isAdminPage && !hideElements && (
             <div className="chatbot-container">
+              {/* Icone pour ouvrir le Chatbot */}
               <img
                 src="/images/chatjpt-removebg.png"
                 alt="Chatbot"
                 className="chat-icon"
                 onClick={toggleChatbot}
               />
+              {/* Affiche le chatbot avec l'icône de fermeture */}
               {isChatbotOpen && (
                 <div className="chatbot-popup">
                   <div className="chatbot-header">
-                    <h4>Chat</h4>
-                    <CloseIcon className="close-icon" onClick={toggleChatbot} />
+                    <h4>Mobiliis</h4>
+                    <CloseIcon className="close-icon" onClick={closeChatbot} />
                   </div>
-                  <Chatbot /> {/* Un seul Chatbot rendu ici */}
+                  <Chatbot closeChat={closeChatbot} />
                 </div>
               )}
             </div>
           )}
         </main>
-
-        <FixeFooter />
-        {!hideElements && <Footer />}
+        {!isAdminPage && <FixeFooter />}
+        <Footer />
       </div>
     </div>
   );
