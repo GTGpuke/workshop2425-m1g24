@@ -8,6 +8,7 @@ import Connexion from "./components/authentification/connexion";
 import ForgetPassword from "./components/authentification/forgetPassword";
 import Profil from "./components/authentification/profil";
 import Map from "./components/authentification/map";
+import Sponsor from "./components/authentification/sponsor";
 import Medecin from "./components/authentification/medecin";
 import TelechargeBrochure from "./components/authentification/telechargeBrochure";
 import Contact from "./components/authentification/contact";
@@ -15,6 +16,8 @@ import NotFound from './components/authentification/NotFound';
 import Choix from './components/mesChoix/choix';
 import Notice from './components/mesChoix/notice';
 import France from './components/mesChoix/france';
+import Langue from './components/langues/langue';
+import CoursAnglais from './components/langues/coursAnglais';
 import Presentation from "./components/mobiliis/presentation";
 import Temoignage from "./components/temoignages/temoignage";
 import ToutTemoignages from "./components/temoignages/toutTemoignages";
@@ -31,6 +34,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/inscription" element={<Inscription />} />
           <Route path="/connexion" element={<Connexion />} />
+          <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/map" element={<Map />} />
           <Route path="/forgetPassword" element={<ForgetPassword />} />
           <Route path="/contact" element={<Contact />} />
@@ -47,6 +51,8 @@ const App = () => {
           <Route path="/notice" element={<Notice />} />
           <Route path="/france" element={<France />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/langue" element={<Langue />} />
+          <Route path="/coursAnglais" element={<CoursAnglais />} />
         </Routes>
       </Layout>
     </Router>

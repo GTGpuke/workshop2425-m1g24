@@ -1,0 +1,171 @@
+/* Page principale */
+.langue-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  .formation-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .formation-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 0 0 20%; /* Réduit la largeur des cartes */
+    height: auto; /* Permet à la carte de s'agrandir si le contenu déborde */
+    min-height: 450px; /* Augmente la hauteur initiale */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .formation-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .formation-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #06263d;
+    margin-bottom: 10px;
+  }
+  
+  .formation-offer {
+    background-color: #5e2dcf;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .formation-testimonies {
+    font-size: 14px;
+    color: #5e2dcf;
+    margin-bottom: 10px;
+  }
+  
+  .formation-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  
+  .formation-details li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .formation-price {
+    margin-bottom: 10px;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #999;
+  }
+  
+  .new-price {
+    font-weight: bold;
+    color: #06263d;
+  }
+  
+  .reduction {
+    color: #5e2dcf;
+    font-size: 12px;
+  }
+  
+  .formation-financement {
+    background-color: #5e2dcf;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .formation-button {
+    background-color: white;
+    color: #5e2dcf;
+    border: 2px solid #5e2dcf;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .formation-button:hover {
+    background-color: #5e2dcf;
+    color: white;
+  }
+  
+  .langue-title {
+    display: inline-block;
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366; 
+    margin-left: 550px;
+  }
+  
+  .langue-title::before,
+  .langue-title::after {
+    content: "";
+    position: absolute;
+    height: 1px; 
+    width: 180px; 
+    background-color: #A93D87; 
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .langue-title::before {
+    left: -210px; 
+    border-top: 2px solid #A93D87; 
+    border-bottom: 2px solid #A93D87; 
+    border-radius: 2px;
+  }
+  
+  .langue-title::after {
+    right: -210px; 
+    border-top: 2px solid #A93D87; 
+    border-bottom: 2px solid #A93D87; 
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .formation-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+      gap: 10px; /* Espacement entre les cartes */
+      justify-content: center; /* Centre les cartes */
+    }
+  
+    .formation-card {
+      flex: 1; /* Laisse chaque carte occuper une largeur égale */
+      min-height: auto; /* Laisse la hauteur s'adapter automatiquement */
+    }
+  
+    .langue-title {
+      margin-left: 0; /* Aligner le titre au centre en mobile */
+      text-align: center;
+    }
+  
+    .langue-title::before,
+    .langue-title::after {
+      display: none; /* Supprime les lignes de chaque côté en mobile */
+    }
+  }
+  

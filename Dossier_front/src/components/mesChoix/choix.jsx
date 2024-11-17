@@ -17,6 +17,9 @@ const Choix = () => {
   const handleAllemagne = () => {
     navigate('/allemagne');
   };
+  const handleBelgique = () => {
+    navigate('/belgique');
+  };
 
   // Sections de contenu avec les informations nécessaires et la fonction de navigation correspondante
   const sections = [
@@ -48,13 +51,13 @@ const Choix = () => {
       onClick: handleAllemagne,
     },
     {
-      title: "Procédure pour le Canada",
+      title: "Procédure pour la Belgique",
       description: "ESCG-PARIS, votre école de choix.",
       image: "/images/brochure.jpeg",
-      flag: "/images/canada.jpg",
+      flag: "/images/Belgique.jpg",
       buttonText: "voir votre procédure",
       buttonColor: "#004080",
-      onClick: handleCanada,
+      onClick: handleBelgique,
     },
     {
       title: "Procédure pour la France",
@@ -110,7 +113,7 @@ const Choix = () => {
             className="choix-button"
             style={{ backgroundColor: section.buttonColor }}
             endIcon={<MenuIcon />}
-            onClick={section.onClick} // Appel de la fonction de navigation spécifique au pays
+            onClick={section.onClick} 
           >
             {section.buttonText}
           </Button>

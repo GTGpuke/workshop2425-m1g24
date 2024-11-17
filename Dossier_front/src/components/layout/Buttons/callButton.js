@@ -2,7 +2,7 @@ import CallIcon from '@mui/icons-material/Call';
 import React, { useState, useEffect } from 'react';
 
 const CallButton = () => {
-  const phoneNumber = "+237655196254"; 
+  const phoneNumber = "+237233412614"; 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 
   useEffect(() => {

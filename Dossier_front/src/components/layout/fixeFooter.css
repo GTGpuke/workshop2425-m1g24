@@ -13,6 +13,7 @@
       padding: 10px;
       z-index: 1000; 
       height: 70px;
+      position: fixed;
     }
   
     .appel {

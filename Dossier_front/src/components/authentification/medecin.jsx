@@ -5,6 +5,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useTranslation } from 'react-i18next';
 import Temoignages from '../temoignages/temoignage';
 import Choix from '../mesChoix/choix';
+import Sponsor from './sponsor';
+import Langue from '../langues/langue';
 import './medecin.css';
 
 const Medecin = () => {
@@ -74,9 +76,15 @@ const Medecin = () => {
         <button className="green-button" onClick={handleTemoignageClick}>
           Lire tous les témoignages <ChevronRightIcon style={{ fontSize: '20px', marginLeft: '5px' }} />
         </button>
-      </div><br />
+      </div>
+      <div className="langue">
+        <Langue/>
+      </div>
       <div className="temoignage">
         <img src="/images/download.jpeg" alt="avion" />
+      </div>
+      <div className="sponsor">
+        <Sponsor/>
       </div>
     </Box>
   );

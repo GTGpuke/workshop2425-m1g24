@@ -1,0 +1,116 @@
+/* Container principal */
+.sponsor-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  /* Titre */
+  /* .sponsor-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1d1d72;
+    margin-bottom: 20px;
+  } */
+
+  .sponsor-title {
+    display: inline-block;
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #003366; /* Couleur du texte */
+  }
+  
+  .sponsor-title::before,
+  .sponsor-title::after {
+    content: "";
+    position: absolute;
+    height: 1px; /* Réduction de l'épaisseur du trait */
+    width: 180px; /* Augmentation de la longueur du trait */
+    background-color: #A93D87; /* Couleur du trait */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .sponsor-title::before {
+    left: -210px; /* Positionnement du trait gauche */
+    border-top: 2px solid #A93D87; /* Bord supérieur en bleu */
+    border-bottom: 2px solid #A93D87; /* Bord inférieur en bleu */
+    border-radius: 2px;
+  }
+  
+  .sponsor-title::after {
+    right: -210px; /* Positionnement du trait droit */
+    border-top: 2px solid #A93D87; /* Bord supérieur en bleu */
+    border-bottom: 2px solid #A93D87; /* Bord inférieur en bleu */
+    border-radius: 2px;
+  }
+  
+  /* Carousel */
+  .sponsor-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .carousel-logos {
+    display: flex;
+    overflow: hidden;
+    width: 60%;
+    justify-content: space-between;
+  }
+  
+  .logo-item {
+    flex: 0 0 30%;
+    text-align: center;
+  }
+  
+  .sponsor-logo {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+  }
+  
+  .sponsor-logo:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Boutons de navigation */
+  .carousel-btn {
+    background: none;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+    color: #000;
+    padding: 10px;
+  }
+  
+  .prev-btn {
+    margin-right: 10px;
+  }
+  
+  .next-btn {
+    margin-left: 10px;
+  }
+  
+  /* Dots */
+  .carousel-dots {
+    margin-top: 15px;
+  }
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #1d1d72;
+  }
+  

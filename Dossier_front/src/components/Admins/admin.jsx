@@ -8,7 +8,7 @@ import EuroIcon from '@mui/icons-material/Euro';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
-import { useNavigate } from 'react-router-dom'; // Importer useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 const NAVIGATION = [
   {

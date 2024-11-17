@@ -109,7 +109,7 @@ const Header = () => {
         <div className="header-main">
           <div className="logo">
             <img src="/images/Manitour.png" alt="Mobiliis Logo" className="logoImage" />
-            <h4 className="slogan">Mobiliis Agency</h4>
+            <h4 className="slogan">Mobiliis</h4>
           </div>
 
           <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
