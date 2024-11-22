@@ -13,6 +13,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 
+
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -128,7 +129,7 @@ const Header = () => {
                 onMouseLeave={handleMouseLeave}
                 style={{ position: 'relative' }}
               >
-                <Link to="/home" className="navLink">
+                <Link to="#" className="navLink">
                   {t('header.services')} <KeyboardArrowDownIcon />
                 </Link>
                 {showServicesMenu && (

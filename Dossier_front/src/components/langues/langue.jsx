@@ -60,14 +60,14 @@ const Langue = () => {
     },
     {
       id: 4,
-      logo: "path/to/logo4.png",
-      title: "Formation personnalisée en Anglais",
+      logo: "images/espagne.jpg",
+      title: "Formation personnalisée en Espagnol",
       offer: "Offre spéciale",
       testimonies: "Avis des élèves",
       description: "Formation flexible avec des experts natifs",
       location: "À distance ou en présentiel",
       contact: "Nous contacter",
-      financement: "Finançable CPF",
+      financement: "Plusieurs Modalités",
       button: "Je m'informe gratuitement",
       onClick: null, // Pas d'action définie pour cette formation
     },

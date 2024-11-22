@@ -1,0 +1,94 @@
+/* Container principal en flexbox */
+.brochure-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espacement entre l'image et le formulaire */
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+   
+   
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  /* Image à gauche */
+  .brochure-image-container {
+    flex: 1; /* Permet à l'image de prendre de l'espace */
+    width: 600px;
+    height: 500px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .brochure-image {
+    width: 100%; /* Image responsive */
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  /* Formulaire à droite */
+  .brochure-form-container {
+    flex: 1; /* Permet au formulaire de prendre de l'espace */
+    max-width: 50%;
+  }
+  
+  .brochure-form-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #004080;
+  }
+  
+  .brochure-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacement entre les champs */
+  }
+  
+  .brochure-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .brochure-input:focus {
+    outline: none;
+    border-color: #004080;
+  }
+  
+  .brochure-actions {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #004080;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .submit-button:hover {
+    background-color: #003060;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .brochure-container {
+      flex-direction: column;
+    }
+  
+    .brochure-image-container,
+    .brochure-form-container {
+      max-width: 100%;
+    }
+  }
+  

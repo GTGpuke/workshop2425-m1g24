@@ -4,8 +4,8 @@ import "./sponsor.css";
 const Sponsor = () => {
   const logos = [
     { id: 1, src: "images/mobiliis.jpeg", alt: "Logo 1" },
-    { id: 2, src: "/images/Manitour.png", alt: "Logo 2" },
-    { id: 3, src: "/images/Manitour.png", alt: "Logo 3" },
+    { id: 2, src: "/images/studappart.png", alt: "Logo 2" },
+    { id: 3, src: "/images/excelia.jpeg", alt: "Logo 3" },
     { id: 4, src: "/images/Manitour.png", alt: "Logo 4" },
     { id: 5, src: "/images/Manitour.png", alt: "Logo 5" },
   ];

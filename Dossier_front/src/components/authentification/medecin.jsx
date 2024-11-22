@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -20,10 +20,21 @@ const Medecin = () => {
     navigate('/toutTemoignages');
   };
 
+  // Gestion des images pour l'animation
+  const images = ["/images/bureau.jpeg", "/images/avion.jpg", "/images/catable.jpg"];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000); // Change l'image toutes les 2 secondes
+    return () => clearInterval(interval); // Nettoyage à la fin
+  }, [images.length]);
+
   return (
     <Box className="medecin-container">
       <div className="flou">
-        <img src="/images/bureau.jpeg" alt="avion" />
+      <img src={images[currentImageIndex]} alt="Slideshow" className="slideshow-image" />
         <div className="backdrop-overlay">
           <h2 className="titre">{t('accueil.title')}</h2>
           <p className="descrire">{t('accueil.description')}</p>

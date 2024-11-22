@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Button from '@mui/material/Button';
@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function BrochureButton() {
   const [open, setOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
   const [formData, setFormData] = useState({
     nom: '',
     prenom: '',
@@ -46,7 +46,6 @@ export default function BrochureButton() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Vérifiez si tous les champs sont remplis
     if (!formData.nom || !formData.prenom || !formData.email || !formData.telephone) {
       alert("Veuillez remplir tous les champs.");
       return;
@@ -65,7 +64,7 @@ export default function BrochureButton() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1000);
+      setIsMobile(window.innerWidth < 800);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -87,7 +86,7 @@ export default function BrochureButton() {
       top: '280px',
       right: '20px',
       border: 'none',
-      zIndex: isMobile ? 1000 : 1,
+      zIndex: 1000,
     },
     icon: {
       fontSize: '30px',
@@ -96,22 +95,34 @@ export default function BrochureButton() {
 
   return (
     <React.Fragment>
-      <Button onClick={handleClickOpen} style={styles.button}>
-        <FileDownloadIcon style={styles.icon} />
-      </Button>
+      {!isMobile && (
+        <Button onClick={handleClickOpen} style={styles.button}>
+          <FileDownloadIcon style={styles.icon} />
+        </Button>
+      )}
       <Dialog
         open={open}
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
-        maxWidth="md" // Agrandit le dialogue
-        fullWidth // Utilise toute la largeur disponible
-        sx={{width: '580px', height:'500px', marginLeft: '700px', marginTop: '220px'}}
+        maxWidth="md"
+        fullWidth
+        sx={{
+          width: '580px',
+          height: '500px',
+          marginLeft: '700px',
+          marginTop: '220px',
+        }}
       >
         <DialogTitle className="dialog-title">
           {"Télécharger notre documentation"}
-          <Button onClick={handleClose} style={{ position: 'absolute', left: 206, bottom: 206 }}>X</Button>
+          <Button
+            onClick={handleClose}
+            style={{ position: 'absolute', left: 206, bottom: 206 }}
+          >
+            X
+          </Button>
         </DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
@@ -155,8 +166,12 @@ export default function BrochureButton() {
               className="dialog-input"
             />
             <DialogActions className="dialog-actions">
-              <Button onClick={handleClose} className="cancel-button">Annuler</Button>
-              <Button type="submit" className="submit-button">Valider</Button>
+              <Button onClick={handleClose} className="cancel-button">
+                Annuler
+              </Button>
+              <Button type="submit" className="submit-button">
+                Valider
+              </Button>
             </DialogActions>
           </form>
         </DialogContent>

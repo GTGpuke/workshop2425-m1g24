@@ -1,13 +1,13 @@
 import React from 'react';
-import { Box, Button, Typography, Card, CardContent, CardMedia } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, Button, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
+// import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
+import { PlusCircle } from 'react-bootstrap-icons';
 import './choix.css';
 
 const Choix = () => {
   const navigate = useNavigate();
 
-  // Fonctions de navigation pour chaque pays
   const handleFrance = () => {
     navigate('/france');
   };
@@ -21,7 +21,6 @@ const Choix = () => {
     navigate('/belgique');
   };
 
-  // Sections de contenu avec les informations nécessaires et la fonction de navigation correspondante
   const sections = [
     {
       title: "Procédure pour le Canada",
@@ -80,45 +79,58 @@ const Choix = () => {
   ];
 
   return (
-    <Box className="choix-container">
-      <div className="titre">
-        <h6> Découvrir toutes nos destinations pour votre voyage </h6>
-      </div>
-      {sections.map((section, index) => (
-        <Card className="choix-card" key={index}>
-          <div className="choix-image-wrapper">
-            <CardMedia
-              component="img"
-              height="140"
-              image={section.image}
-              alt={section.title}
-              className="choix-image"
-            />
-          </div>
-          <CardContent className="choix-content">
-            <Typography variant="h6" component="div" className="choix-title">
-              {section.title}
-            </Typography>
-            {section.flag && (
-              <div className="flag-container">
-                <img src={section.flag} alt="Flag" className="choix-flag" />
+    <Box className="choix-container" sx={{ padding: '20px' }}>
+      {/* Titre centré */}
+      <Typography
+        variant="h4"
+        component="h3"
+        className="choix-title-with-bars"
+        sx={{ marginBottom: '20px' }}
+      >
+        Découvrir nos destinations pour votre voyage !
+      </Typography>
+
+
+      {/* Grille des cards */}
+      <Grid container spacing={3}>
+        {sections.map((section, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card className="choix-card" sx={{ height: '470px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div className="choix-image-wrapper" style={{ height: '270px', overflow: 'hidden' }}>
+                <CardMedia
+                  component="img"
+                  height="270"
+                  image={section.image}
+                  alt={section.title}
+                  className="choix-image"
+                />
               </div>
-            )}
-            <Typography variant="body2" color="text.secondary" className="choix-description">
-              {section.description}
-            </Typography>
-          </CardContent>
-          <Button
-            variant="contained"
-            className="choix-button"
-            style={{ backgroundColor: section.buttonColor }}
-            endIcon={<MenuIcon />}
-            onClick={section.onClick} 
-          >
-            {section.buttonText}
-          </Button>
-        </Card>
-      ))}
+              <CardContent className="choix-content">
+                <Typography variant="h6" component="div" className="choix-title">
+                  {section.title}
+                </Typography>
+                {section.flag && (
+                  <div className="flag-container">
+                    <img src={section.flag} alt="Flag" className="choix-flag" />
+                  </div>
+                )}
+                <Typography variant="body2" color="text.secondary" className="choix-description">
+                  {section.description}
+                </Typography>
+              </CardContent>
+              <Button
+                variant="contained"
+                className="choix-button"
+                style={{ backgroundColor: section.buttonColor }}
+                endIcon={<PlusCircle />}
+                onClick={section.onClick}
+              >
+                {section.buttonText}
+              </Button>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };
